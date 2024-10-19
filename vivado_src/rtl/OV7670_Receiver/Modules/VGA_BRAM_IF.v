@@ -17,8 +17,10 @@ module VGA_BRAM_IF(
         output      wire        [3 : 0]     o_pxl_b
     );
 
-    assign o_h_addr = {1'b0, i_h_addr[9 : 1]};
-    assign o_v_addr = {1'b0, i_v_addr[9 : 1]};
+    // assign o_h_addr = {1'b0, i_h_addr[9 : 1]};
+    // assign o_v_addr = {1'b0, i_v_addr[9 : 1]};
+    assign o_h_addr = i_h_addr;
+    assign o_v_addr = i_v_addr;
     assign o_valid  = i_valid;
 
     // Need More Things Here..

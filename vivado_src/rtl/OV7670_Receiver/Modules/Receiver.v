@@ -15,6 +15,7 @@ module Receiver #(
 
         input       wire                                    i_next_frame,
         input       wire                                    i_start_capture,
+        output      wire        [5 : 0]                     o_present_state,
 
         // OV7670 IF
         input       wire                                    i_PCLK,
@@ -27,8 +28,8 @@ module Receiver #(
 
         // BRAM IF
         output      wire        [PXL_WIDTH - 1 : 0]         o_pixel_data,
-        output      wire        [$clog2(H_WIDTH) : 0]       o_h_addr,
-        output      wire        [$clog2(V_WIDTH) : 0]       o_v_addr,
+        output      wire        [$clog2(H_WIDTH) - 1 : 0]   o_h_addr,
+        output      wire        [$clog2(V_WIDTH) - 1 : 0]   o_v_addr,
         output      wire                                    o_valid
     );
 
@@ -59,8 +60,9 @@ module Receiver #(
                     wire                                    w_vsync_posedge;
                     wire                                    w_vsync_negedge;
 
-                    reg         [$clog2(H_WIDTH) : 0]       r_h_addr;
-                    reg         [$clog2(V_WIDTH) : 0]       r_v_addr;
+
+                    reg         [$clog2(H_WIDTH) - 1 : 0]   r_h_addr;
+                    reg         [$clog2(V_WIDTH) - 1 : 0]   r_v_addr;
 
         edge_detector_n                                     ED_PCLK(
             .i_clk                                          (i_clk),
@@ -147,7 +149,7 @@ module Receiver #(
                         else if (w_pclk_posedge) begin
                             next_state <= WAIT_SECOND_BYTE;
                             r_pixel_data <= i_DATA;
-                            r_valid <= 0;
+                            r_valid <= 1;
                         end
                         else begin
                             next_state <= WAIT_FIRST_BYTE;
@@ -194,24 +196,36 @@ module Receiver #(
                 r_v_addr <= 0;
             end
             else begin
-                if (o_valid) begin
-                    if (r_h_addr >= H_WIDTH - 1) begin
-                        if (r_v_addr >= V_WIDTH - 1) begin
-                            r_h_addr <= 0;
-                            r_v_addr <= 0;
-                        end
-                        else begin
-                            r_h_addr <= 0;
-                            r_v_addr <= r_v_addr + 1;
-                        end
-                    end
-                    else begin
-                        r_h_addr <= r_h_addr + 1;
-                    end
+                if (w_vsync_posedge) begin
+                    r_h_addr <= 0;
+                    r_v_addr <= 0;
                 end
+                else if (w_href_negedge) begin
+                    r_h_addr <= 0;
+                    r_v_addr <= r_v_addr + 1;
+                end
+                else if (o_valid) begin
+                    r_h_addr <= r_h_addr + 1;
+                end
+                // if (o_valid) begin
+                //     if (r_h_addr >= H_WIDTH - 1) begin
+                //         if (r_v_addr >= V_WIDTH - 1) begin
+                //             r_h_addr <= 0;
+                //             r_v_addr <= 0;
+                //         end
+                //         else begin
+                //             r_h_addr <= 0;
+                //             r_v_addr <= r_v_addr + 1;
+                //         end
+                //     end
+                //     else begin
+                //         r_h_addr <= r_h_addr + 1;
+                //     end
+                // end
             end
         end
 
+        assign  o_present_state =       present_state;
         assign  o_pixel_data    =       r_pixel_data[PXL_WIDTH - 1 : 0];
         assign  o_h_addr        =       r_h_addr;
         assign  o_v_addr        =       r_v_addr;

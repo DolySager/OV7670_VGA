@@ -2,11 +2,11 @@
 
 module OV7670_RCV_BRAM#(
         parameter                                           DATA_WIDTH      =       8,
-        parameter                                           H_WIDTH         =       320,
-        parameter                                           V_WIDTH         =       240,
-        parameter                                           R_WIDTH         =       5,
-        parameter                                           G_WIDTH         =       6,
-        parameter                                           B_WIDTH         =       5,
+        parameter                                           H_WIDTH         =       640,
+        parameter                                           V_WIDTH         =       480,
+        parameter                                           R_WIDTH         =       4,
+        parameter                                           G_WIDTH         =       4,
+        parameter                                           B_WIDTH         =       4,
         parameter                                           PXL_WIDTH       =       R_WIDTH + G_WIDTH + B_WIDTH,
         parameter                                           XCLK_FREQ       =       24_000_000
     )(
@@ -16,6 +16,7 @@ module OV7670_RCV_BRAM#(
 
         input       wire                                    i_next_frame,
         input       wire                                    i_start_capture,
+        output      wire        [5 : 0]                     o_present_state,
 
         // OV7670 IF
         input       wire                                    i_PCLK,
@@ -38,11 +39,21 @@ module OV7670_RCV_BRAM#(
                     wire                                    w_valid;
                     wire        [11 : 0]                    w_pixel_data;
 
-        OV7670_Receiver                                     OV_RCV(
+        OV7670_Receiver                                     #(
+            .DATA_WIDTH                                     (DATA_WIDTH),
+            .H_WIDTH                                        (H_WIDTH),
+            .V_WIDTH                                        (V_WIDTH),
+            .R_WIDTH                                        (R_WIDTH),
+            .G_WIDTH                                        (G_WIDTH),
+            .B_WIDTH                                        (B_WIDTH),
+            .PXL_WIDTH                                      (PXL_WIDTH),
+            .XCLK_FREQ                                      (XCLK_FREQ)
+        )                                                   OV_RCV(
             .i_clk                                          (i_clk),
             .i_n_reset                                      (i_n_reset),
             .i_next_frame                                   (i_next_frame),
             .i_start_capture                                (i_start_capture),
+            .o_present_state                                (o_present_state),
             .i_PCLK                                         (i_PCLK),
             .i_VS                                           (i_VS),
             .i_HS                                           (i_HS),
@@ -59,7 +70,7 @@ module OV7670_RCV_BRAM#(
             .i_v_addr                                       (w_v_addr),
             .i_valid                                        (w_valid),
             .i_pixel_data                                   (w_pixel_data),
-            
+
             .o_h_addr                                       (o_h_addr),
             .o_v_addr                                       (o_v_addr),
             .o_valid                                        (o_valid),

@@ -13,7 +13,7 @@ module VGA_controller(
     wire H_display_on, V_display_on;
     wire h_sync_nedge;
 
-    edge_detector_n edge_usec (.clk(clk), .reset_p(reset_p), .cp(Hsync), .n_edge(h_sync_nedge));
+    edge_detector_n edge_usec (.i_clk(clk), .i_reset(reset_p), .i_cp(Hsync), .o_negedge(h_sync_nedge));
               
     h_sync_generator h_sync_module(
                             .clk(clk), .reset_p(reset_p),

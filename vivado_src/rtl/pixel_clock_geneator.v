@@ -24,6 +24,6 @@ module pixel_clock_generator (
     
     assign cp_div_100 = (count_sysclk < (DIVIDER_VALUE / 2) ) ? 0 : 1;
     
-    edge_detector_n  edge_usec (.clk(clk), .reset_p(reset_p), .cp(cp_div_100), .n_edge(pixel_clock_pulse));
+    edge_detector_n  edge_usec (.i_clk(clk), .i_reset(reset_p), .i_cp(cp_div_100), .o_negedge(pixel_clock_pulse));
                 
 endmodule
