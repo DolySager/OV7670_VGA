@@ -27,8 +27,8 @@ module OV7670_Receiver#(
 
         // VGA_BRAM_IF
         output      wire        [PXL_WIDTH - 1 : 0]         o_pixel_data,
-        output      wire        [$clog2(H_WIDTH) - 1 : 0]   o_h_addr,
-        output      wire        [$clog2(V_WIDTH) - 1 : 0]   o_v_addr,
+        output      wire        [$clog2(H_WIDTH) : 0]       o_h_addr,
+        output      wire        [$clog2(V_WIDTH) : 0]       o_v_addr,
         output      wire                                    o_valid 
     );
         // XCLK_GEN IF

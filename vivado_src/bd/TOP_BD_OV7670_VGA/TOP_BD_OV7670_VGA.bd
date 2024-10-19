@@ -15,6 +15,7 @@
       "VGA_controller_0": "",
       "pixel_clock_generator_0": "",
       "BRAM_320x240_control_0": "",
+      "pixel_coord_converter_0": "",
       "OV7670_RCV_BRAM_0": ""
     },
     "ports": {
@@ -387,7 +388,8 @@
             "direction": "I",
             "parameters": {
               "POLARITY": {
-                "value": "ACTIVE_HIGH"
+                "value": "ACTIVE_HIGH",
+                "value_src": "const_prop"
               }
             }
           },
@@ -442,6 +444,37 @@
           "portb_vgaBlue": {
             "direction": "O",
             "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "pixel_coord_converter_0": {
+        "vlnv": "xilinx.com:module_ref:pixel_coord_converter:1.0",
+        "xci_name": "TOP_BD_OV7670_VGA_pixel_coord_converter_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pixel_coord_converter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "addr_x": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "addr_y": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "addr_x_scaler": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "addr_y_scaler": {
+            "direction": "O",
+            "left": "9",
             "right": "0"
           }
         }
@@ -651,18 +684,6 @@
           "VGA_controller_0/pixel_clock_pulse"
         ]
       },
-      "VGA_controller_0_count_h": {
-        "ports": [
-          "VGA_controller_0/count_h",
-          "BRAM_320x240_control_0/portb_addr_x"
-        ]
-      },
-      "VGA_controller_0_count_v": {
-        "ports": [
-          "VGA_controller_0/count_v",
-          "BRAM_320x240_control_0/portb_addr_y"
-        ]
-      },
       "BRAM_320x240_control_0_portb_vgaRed": {
         "ports": [
           "BRAM_320x240_control_0/portb_vgaRed",
@@ -744,10 +765,10 @@
       "rst_clk_wiz_0_100M_peripheral_reset": {
         "ports": [
           "rst_clk_wiz_0_100M/peripheral_reset",
-          "BRAM_320x240_control_0/reset_p",
           "VGA_controller_0/reset_p",
           "pixel_clock_generator_0/reset_p",
-          "buttonControl_0/i_reset"
+          "buttonControl_0/i_reset",
+          "BRAM_320x240_control_0/reset_p"
         ]
       },
       "rst_clk_wiz_0_100M_peripheral_aresetn": {
@@ -760,6 +781,30 @@
         "ports": [
           "OV7670_RCV_BRAM_0/o_XCLK",
           "o_XCLK"
+        ]
+      },
+      "VGA_controller_0_count_h": {
+        "ports": [
+          "VGA_controller_0/count_h",
+          "pixel_coord_converter_0/addr_x"
+        ]
+      },
+      "VGA_controller_0_count_v": {
+        "ports": [
+          "VGA_controller_0/count_v",
+          "pixel_coord_converter_0/addr_y"
+        ]
+      },
+      "pixel_coord_converter_0_addr_x_scaler": {
+        "ports": [
+          "pixel_coord_converter_0/addr_x_scaler",
+          "BRAM_320x240_control_0/portb_addr_x"
+        ]
+      },
+      "pixel_coord_converter_0_addr_y_scaler": {
+        "ports": [
+          "pixel_coord_converter_0/addr_y_scaler",
+          "BRAM_320x240_control_0/portb_addr_y"
         ]
       }
     }

@@ -28,8 +28,8 @@ module Receiver #(
 
         // BRAM IF
         output      wire        [PXL_WIDTH - 1 : 0]         o_pixel_data,
-        output      wire        [$clog2(H_WIDTH) - 1 : 0]   o_h_addr,
-        output      wire        [$clog2(V_WIDTH) - 1 : 0]   o_v_addr,
+        output      wire        [$clog2(H_WIDTH) : 0]       o_h_addr,
+        output      wire        [$clog2(V_WIDTH) : 0]       o_v_addr,
         output      wire                                    o_valid
     );
 
@@ -52,7 +52,8 @@ module Receiver #(
                     reg                                     r_valid;
 
                     wire                                    w_pclk_posedge;
-                    wire                                    w_pclk_negdege;
+                    reg                                     r_pclk_posedge_z;
+                    wire                                    w_pclk_negedge;
 
                     wire                                    w_href_posedge;
                     wire                                    w_href_negedge;
@@ -60,16 +61,17 @@ module Receiver #(
                     wire                                    w_vsync_posedge;
                     wire                                    w_vsync_negedge;
 
+                    reg                                     r_flag;
 
-                    reg         [$clog2(H_WIDTH) - 1 : 0]   r_h_addr;
-                    reg         [$clog2(V_WIDTH) - 1 : 0]   r_v_addr;
+                    reg         [$clog2(H_WIDTH) : 0]       r_h_addr;
+                    reg         [$clog2(V_WIDTH) : 0]       r_v_addr;
 
         edge_detector_n                                     ED_PCLK(
             .i_clk                                          (i_clk),
             .i_reset                                        (~i_n_reset),
             .i_cp                                           (i_PCLK),
             .o_posedge                                      (w_pclk_posedge),
-            .o_negedge                                      (w_pclk_negdege)
+            .o_negedge                                      (w_pclk_negedge)
         );
 
         edge_detector_n                                     ED_HREF(
@@ -101,7 +103,6 @@ module Receiver #(
             if (!i_n_reset) begin
                 next_state <= IDLE;
                 r_pixel_data <= 0;
-                r_valid <= 0;
                 r_en_xclk <= 0;
             end
             else begin
@@ -129,44 +130,45 @@ module Receiver #(
                     WAIT_HREF_RISE : begin
                         if (w_vsync_posedge) begin
                             next_state <= FRAME_DONE;
-                            r_valid <= 0;
                         end
                         else if (w_href_posedge) begin
                             next_state <= WAIT_FIRST_BYTE;
-                            r_valid <= 0;
                         end
                         else begin
                             next_state <= WAIT_HREF_RISE;
-                            r_valid <= 0;
                         end
                     end
 
                     WAIT_FIRST_BYTE : begin : PXL_DATA_RCV
-                        if (w_href_negedge) begin
+                        if (w_vsync_posedge) begin
+                            next_state <= FRAME_DONE;
+                        end
+                        else if (w_href_negedge) begin
                             // Next Line
                             next_state <= WAIT_HREF_RISE;
                         end
-                        else if (w_pclk_posedge) begin
+                        // else if (r_pclk_posedge_z) begin
+                        else if (w_pclk_negedge) begin
                             next_state <= WAIT_SECOND_BYTE;
                             r_pixel_data <= i_DATA;
-                            r_valid <= 1;
                         end
                         else begin
                             next_state <= WAIT_FIRST_BYTE;
-                            r_valid <= 0;
                         end
                     end
 
                     WAIT_SECOND_BYTE : begin
-                        if (w_pclk_posedge) begin
+                        if (w_vsync_posedge) begin
+                            next_state <= FRAME_DONE;
+                        end
+                        // else if (r_pclk_posedge_z) begin
+                        else if (w_pclk_negedge) begin
                             // Next Byte, in same line
                             next_state <= WAIT_FIRST_BYTE;
                             r_pixel_data <= (r_pixel_data << (DATA_WIDTH) | i_DATA);
-                            r_valid <= 1;
                         end
                         else begin
                             next_state <= WAIT_SECOND_BYTE;
-                            r_valid <= 0;
                         end
                     end
 
@@ -174,16 +176,13 @@ module Receiver #(
                         if (i_next_frame) begin
                             next_state      <=      WAIT_VSYNC_FALL;
                             r_pixel_data    <=      0;
-                            r_valid         <=      0;
                             r_en_xclk       <=      1;
                         end
                     end
 
-
                     default : begin
                             next_state      <=      'bz;
                             r_pixel_data    <=      'bz;
-                            r_valid         <=      'bz;
                             r_en_xclk       <=      'bz;
                     end
                 endcase
@@ -194,18 +193,36 @@ module Receiver #(
             if (!i_n_reset) begin
                 r_h_addr <= 0;
                 r_v_addr <= 0;
+                r_flag <= 0;
+                r_valid <= 0;
             end
             else begin
                 if (w_vsync_posedge) begin
                     r_h_addr <= 0;
                     r_v_addr <= 0;
+                    r_valid <= 0;
                 end
                 else if (w_href_negedge) begin
                     r_h_addr <= 0;
                     r_v_addr <= r_v_addr + 1;
+                    r_valid <= 0;
                 end
-                else if (o_valid) begin
-                    r_h_addr <= r_h_addr + 1;
+                // else if (o_valid) begin
+                //     r_h_addr <= r_h_addr + 1;
+                // end
+                else if (r_pclk_posedge_z && i_HS) begin
+                    if (r_flag == 0) begin
+                        r_flag <= 1;
+                        r_valid <= 0;
+                    end
+                    else if (r_flag == 1) begin
+                        r_flag <= 0;
+                        r_h_addr <= r_h_addr + 1;
+                        r_valid <= 1;
+                    end
+                end
+                else begin
+                    r_valid <= 0;
                 end
                 // if (o_valid) begin
                 //     if (r_h_addr >= H_WIDTH - 1) begin
@@ -222,6 +239,15 @@ module Receiver #(
                 //         r_h_addr <= r_h_addr + 1;
                 //     end
                 // end
+            end
+        end
+
+        always @(posedge i_clk) begin
+            if (!i_n_reset) begin
+                r_pclk_posedge_z <= 0;
+            end
+            else begin
+                r_pclk_posedge_z <= w_pclk_posedge;
             end
         end
 

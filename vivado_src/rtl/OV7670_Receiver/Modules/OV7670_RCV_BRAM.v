@@ -34,7 +34,7 @@ module OV7670_RCV_BRAM#(
         output      wire        [3 : 0]                     o_pxl_g,
         output      wire        [3 : 0]                     o_pxl_b
     );
-                    wire        [9 : 0]                     w_h_addr;
+                    wire        [10 : 0]                    w_h_addr;
                     wire        [9 : 0]                     w_v_addr;
                     wire                                    w_valid;
                     wire        [11 : 0]                    w_pixel_data;
