@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_Receiver_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_Receiver" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="5000fs"></ZoomStartTime>
+      <ZoomEndTime time="64305001fs"></ZoomEndTime>
+      <Cursor1Time time="26545000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="250"></NameColumnWidth>
+      <ValueColumnWidth column_width="245"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject type="divider" fp_name="divider107">
+      <obj_property name="label">PCLK</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Receiver/w_PCLK" type="logic">
+      <obj_property name="ElementShortName">w_PCLK</obj_property>
+      <obj_property name="ObjectShortName">w_PCLK</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Receiver/i_VS" type="logic">
+      <obj_property name="ElementShortName">i_VS</obj_property>
+      <obj_property name="ObjectShortName">i_VS</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Receiver/i_HS" type="logic">
+      <obj_property name="ElementShortName">i_HS</obj_property>
+      <obj_property name="ObjectShortName">i_HS</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Receiver/i_DATA" type="array">
+      <obj_property name="ElementShortName">i_DATA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_DATA[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="group91" type="group">
+      <obj_property name="label">FSM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/i_n_reset" type="logic">
+         <obj_property name="ElementShortName">i_n_reset</obj_property>
+         <obj_property name="ObjectShortName">i_n_reset</obj_property>
+         <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/i_next_frame" type="logic">
+         <obj_property name="ElementShortName">i_next_frame</obj_property>
+         <obj_property name="ObjectShortName">i_next_frame</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/i_start_capture" type="logic">
+         <obj_property name="ElementShortName">i_start_capture</obj_property>
+         <obj_property name="ObjectShortName">i_start_capture</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/i_PCLK" type="logic">
+         <obj_property name="ElementShortName">i_PCLK</obj_property>
+         <obj_property name="ObjectShortName">i_PCLK</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/i_VS" type="logic">
+         <obj_property name="ElementShortName">i_VS</obj_property>
+         <obj_property name="ObjectShortName">i_VS</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/i_HS" type="logic">
+         <obj_property name="ElementShortName">i_HS</obj_property>
+         <obj_property name="ObjectShortName">i_HS</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/w_href_negedge" type="logic">
+         <obj_property name="ElementShortName">w_href_negedge</obj_property>
+         <obj_property name="ObjectShortName">w_href_negedge</obj_property>
+         <obj_property name="CustomSignalColor">#808000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/i_clk" type="logic">
+         <obj_property name="ElementShortName">i_clk</obj_property>
+         <obj_property name="ObjectShortName">i_clk</obj_property>
+         <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/i_DATA" type="array">
+         <obj_property name="ElementShortName">i_DATA[7:0]</obj_property>
+         <obj_property name="ObjectShortName">i_DATA[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="group102" type="group">
+         <obj_property name="label">STATE</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/present_state" type="array">
+            <obj_property name="ElementShortName">present_state[5:0]</obj_property>
+            <obj_property name="ObjectShortName">present_state[5:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/next_state" type="array">
+            <obj_property name="ElementShortName">next_state[5:0]</obj_property>
+            <obj_property name="ObjectShortName">next_state[5:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/IDLE" type="array">
+            <obj_property name="ElementShortName">IDLE[5:0]</obj_property>
+            <obj_property name="ObjectShortName">IDLE[5:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/WAIT_VSYNC_FALL" type="array">
+            <obj_property name="ElementShortName">WAIT_VSYNC_FALL[5:0]</obj_property>
+            <obj_property name="ObjectShortName">WAIT_VSYNC_FALL[5:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/WAIT_HREF_RISE" type="array">
+            <obj_property name="ElementShortName">WAIT_HREF_RISE[5:0]</obj_property>
+            <obj_property name="ObjectShortName">WAIT_HREF_RISE[5:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/WAIT_FIRST_BYTE" type="array">
+            <obj_property name="ElementShortName">WAIT_FIRST_BYTE[5:0]</obj_property>
+            <obj_property name="ObjectShortName">WAIT_FIRST_BYTE[5:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/WAIT_SECOND_BYTE" type="array">
+            <obj_property name="ElementShortName">WAIT_SECOND_BYTE[5:0]</obj_property>
+            <obj_property name="ObjectShortName">WAIT_SECOND_BYTE[5:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/FRAME_DONE" type="array">
+            <obj_property name="ElementShortName">FRAME_DONE[5:0]</obj_property>
+            <obj_property name="ObjectShortName">FRAME_DONE[5:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/o_en_xclk" type="logic">
+         <obj_property name="ElementShortName">o_en_xclk</obj_property>
+         <obj_property name="ObjectShortName">o_en_xclk</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data" type="array">
+         <obj_property name="ElementShortName">o_pixel_data[15:0]</obj_property>
+         <obj_property name="ObjectShortName">o_pixel_data[15:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/o_valid" type="logic">
+         <obj_property name="ElementShortName">o_valid</obj_property>
+         <obj_property name="ObjectShortName">o_valid</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/o_h_addr" type="array">
+         <obj_property name="ElementShortName">o_h_addr[2:0]</obj_property>
+         <obj_property name="ObjectShortName">o_h_addr[2:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/o_v_addr" type="array">
+         <obj_property name="ElementShortName">o_v_addr[2:0]</obj_property>
+         <obj_property name="ObjectShortName">o_v_addr[2:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="vbus130" type="vbus">
+         <obj_property name="label">HIGHER_BYTE</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#D2691E</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[15]" type="logic">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[14]" type="logic">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[13]" type="logic">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[12]" type="logic">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[11]" type="logic">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[10]" type="logic">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[9]" type="logic">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[8]" type="logic">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">[8]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus139" type="vbus">
+         <obj_property name="label">LOWER_BYTE</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#D2691E</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[7]" type="logic">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[6]" type="logic">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[5]" type="logic">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[4]" type="logic">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[3]" type="logic">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[2]" type="logic">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[1]" type="logic">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/o_pixel_data[0]" type="logic">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">[0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group148" type="group">
+         <obj_property name="label">reg</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/r_en_xclk" type="logic">
+            <obj_property name="ElementShortName">r_en_xclk</obj_property>
+            <obj_property name="ObjectShortName">r_en_xclk</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/r_pixel_data" type="array">
+            <obj_property name="ElementShortName">r_pixel_data[15:0]</obj_property>
+            <obj_property name="ObjectShortName">r_pixel_data[15:0]</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/r_valid" type="logic">
+            <obj_property name="ElementShortName">r_valid</obj_property>
+            <obj_property name="ObjectShortName">r_valid</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/w_pclk_posedge" type="logic">
+            <obj_property name="ElementShortName">w_pclk_posedge</obj_property>
+            <obj_property name="ObjectShortName">w_pclk_posedge</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/w_pclk_negdege" type="logic">
+            <obj_property name="ElementShortName">w_pclk_negdege</obj_property>
+            <obj_property name="ObjectShortName">w_pclk_negdege</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/w_href_posedge" type="logic">
+            <obj_property name="ElementShortName">w_href_posedge</obj_property>
+            <obj_property name="ObjectShortName">w_href_posedge</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/w_vsync_posedge" type="logic">
+            <obj_property name="ElementShortName">w_vsync_posedge</obj_property>
+            <obj_property name="ObjectShortName">w_vsync_posedge</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/w_vsync_negedge" type="logic">
+            <obj_property name="ElementShortName">w_vsync_negedge</obj_property>
+            <obj_property name="ObjectShortName">w_vsync_negedge</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group103" type="group">
+         <obj_property name="label">PARAM</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/DATA_WIDTH" type="array">
+            <obj_property name="ElementShortName">DATA_WIDTH[31:0]</obj_property>
+            <obj_property name="ObjectShortName">DATA_WIDTH[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/H_WIDTH" type="array">
+            <obj_property name="ElementShortName">H_WIDTH[31:0]</obj_property>
+            <obj_property name="ObjectShortName">H_WIDTH[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/V_WIDTH" type="array">
+            <obj_property name="ElementShortName">V_WIDTH[31:0]</obj_property>
+            <obj_property name="ObjectShortName">V_WIDTH[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/R_WIDTH" type="array">
+            <obj_property name="ElementShortName">R_WIDTH[31:0]</obj_property>
+            <obj_property name="ObjectShortName">R_WIDTH[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/G_WIDTH" type="array">
+            <obj_property name="ElementShortName">G_WIDTH[31:0]</obj_property>
+            <obj_property name="ObjectShortName">G_WIDTH[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/B_WIDTH" type="array">
+            <obj_property name="ElementShortName">B_WIDTH[31:0]</obj_property>
+            <obj_property name="ObjectShortName">B_WIDTH[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/PXL_WIDTH" type="array">
+            <obj_property name="ElementShortName">PXL_WIDTH[31:0]</obj_property>
+            <obj_property name="ObjectShortName">PXL_WIDTH[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/PXL_WIDTH_RGB565" type="array">
+            <obj_property name="ElementShortName">PXL_WIDTH_RGB565[31:0]</obj_property>
+            <obj_property name="ObjectShortName">PXL_WIDTH_RGB565[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/PXL_WIDTH_RGB555" type="array">
+            <obj_property name="ElementShortName">PXL_WIDTH_RGB555[31:0]</obj_property>
+            <obj_property name="ObjectShortName">PXL_WIDTH_RGB555[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/FSM/PXL_WIDTH_RGB444" type="array">
+            <obj_property name="ElementShortName">PXL_WIDTH_RGB444[31:0]</obj_property>
+            <obj_property name="ObjectShortName">PXL_WIDTH_RGB444[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group100" type="group">
+      <obj_property name="label">XCLK</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_Receiver/DUT/XCLK_GEN/i_clk" type="logic">
+         <obj_property name="ElementShortName">i_clk</obj_property>
+         <obj_property name="ObjectShortName">i_clk</obj_property>
+         <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/XCLK_GEN/i_n_reset" type="logic">
+         <obj_property name="ElementShortName">i_n_reset</obj_property>
+         <obj_property name="ObjectShortName">i_n_reset</obj_property>
+         <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/XCLK_GEN/i_enable" type="logic">
+         <obj_property name="ElementShortName">i_enable</obj_property>
+         <obj_property name="ObjectShortName">i_enable</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/XCLK_GEN/o_xclk" type="logic">
+         <obj_property name="ElementShortName">o_xclk</obj_property>
+         <obj_property name="ObjectShortName">o_xclk</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/XCLK_GEN/r_count" type="array">
+         <obj_property name="ElementShortName">r_count[1:0]</obj_property>
+         <obj_property name="ObjectShortName">r_count[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="group101" type="group">
+         <obj_property name="label">PARAM</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/tb_Receiver/DUT/XCLK_GEN/FREQ" type="array">
+            <obj_property name="ElementShortName">FREQ[31:0]</obj_property>
+            <obj_property name="ObjectShortName">FREQ[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/XCLK_GEN/F_CPU" type="array">
+            <obj_property name="ElementShortName">F_CPU[31:0]</obj_property>
+            <obj_property name="ObjectShortName">F_CPU[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_Receiver/DUT/XCLK_GEN/CNT_TH" type="array">
+            <obj_property name="ElementShortName">CNT_TH[31:0]</obj_property>
+            <obj_property name="ObjectShortName">CNT_TH[31:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>
