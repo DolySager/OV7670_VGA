@@ -1,0 +1,583 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a35tcpg236-1",
+      "name": "TOP_BD_OV7670_VGA",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.2"
+    },
+    "design_tree": {
+      "BRAM_320x240_control_0": "",
+      "OV7670_RCV_BRAM_0": "",
+      "buttonControl_0": "",
+      "clk_wiz_0": "",
+      "rst_clk_wiz_0_100M": "",
+      "VGA_controller_0": "",
+      "pixel_clock_generator_0": ""
+    },
+    "ports": {
+      "btn_start": {
+        "direction": "I"
+      },
+      "sw_contFrame": {
+        "direction": "I"
+      },
+      "sys_clock": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "PHASE": {
+            "value": "0.000"
+          }
+        }
+      },
+      "reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "out_vgaBlue_0": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "out_vgaGreen_0": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "out_vgaRed_0": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "Hsync_0": {
+        "direction": "O"
+      },
+      "Vsync_0": {
+        "direction": "O"
+      },
+      "o_XCLK_0": {
+        "direction": "O"
+      },
+      "i_VS_0": {
+        "direction": "I"
+      },
+      "i_PCLK_0": {
+        "direction": "I"
+      },
+      "i_HS_0": {
+        "direction": "I"
+      },
+      "i_DATA_0": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      }
+    },
+    "components": {
+      "BRAM_320x240_control_0": {
+        "vlnv": "xilinx.com:module_ref:BRAM_320x240_controller:1.0",
+        "xci_name": "TOP_BD_OV7670_VGA_BRAM_320x240_control_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "BRAM_320x240_controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "reset_p": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH"
+              }
+            }
+          },
+          "write_enable": {
+            "direction": "I"
+          },
+          "porta_addr_x": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "porta_addr_y": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "porta_vgaRed": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "porta_vgaGreen": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "porta_vgaBlue": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "portb_addr_x": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "portb_addr_y": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "portb_vgaRed": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "portb_vgaGreen": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "portb_vgaBlue": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "OV7670_RCV_BRAM_0": {
+        "vlnv": "xilinx.com:module_ref:OV7670_RCV_BRAM:1.0",
+        "xci_name": "TOP_BD_OV7670_VGA_OV7670_RCV_BRAM_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "OV7670_RCV_BRAM",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "i_n_reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW"
+              }
+            }
+          },
+          "i_next_frame": {
+            "direction": "I"
+          },
+          "i_start_capture": {
+            "direction": "I"
+          },
+          "i_PCLK": {
+            "direction": "I"
+          },
+          "i_VS": {
+            "direction": "I"
+          },
+          "i_HS": {
+            "direction": "I"
+          },
+          "i_DATA": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "o_XCLK": {
+            "direction": "O"
+          },
+          "o_h_addr": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "o_v_addr": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "o_valid": {
+            "direction": "O"
+          },
+          "o_pxl_r": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "o_pxl_g": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "o_pxl_b": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "buttonControl_0": {
+        "vlnv": "xilinx.com:module_ref:buttonControl:1.0",
+        "xci_name": "TOP_BD_OV7670_VGA_buttonControl_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "buttonControl",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "i_reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH"
+              }
+            }
+          },
+          "i_btn": {
+            "direction": "I"
+          },
+          "o_btn_posedge": {
+            "direction": "O"
+          },
+          "o_btn_negedge": {
+            "direction": "O"
+          }
+        }
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "TOP_BD_OV7670_VGA_clk_wiz_0_0",
+        "parameters": {
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "RESET_BOARD_INTERFACE": {
+            "value": "reset"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
+      },
+      "rst_clk_wiz_0_100M": {
+        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+        "xci_name": "TOP_BD_OV7670_VGA_rst_clk_wiz_0_100M_0"
+      },
+      "VGA_controller_0": {
+        "vlnv": "xilinx.com:module_ref:VGA_controller:1.0",
+        "xci_name": "TOP_BD_OV7670_VGA_VGA_controller_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "VGA_controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "reset_p": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "pixel_clock_pulse": {
+            "direction": "I"
+          },
+          "in_vgaRed": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "in_vgaGreen": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "in_vgaBlue": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "Hsync": {
+            "direction": "O"
+          },
+          "Vsync": {
+            "direction": "O"
+          },
+          "out_display_on": {
+            "direction": "O"
+          },
+          "out_vgaRed": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "out_vgaGreen": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "out_vgaBlue": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "count_h": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "count_v": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          }
+        }
+      },
+      "pixel_clock_generator_0": {
+        "vlnv": "xilinx.com:module_ref:pixel_clock_generator:1.0",
+        "xci_name": "TOP_BD_OV7670_VGA_pixel_clock_generator_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pixel_clock_generator",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "reset_p": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "pixel_clock_pulse": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "i_btn_0_1": {
+        "ports": [
+          "btn_start",
+          "buttonControl_0/i_btn"
+        ]
+      },
+      "i_next_frame_0_1": {
+        "ports": [
+          "sw_contFrame",
+          "OV7670_RCV_BRAM_0/i_next_frame"
+        ]
+      },
+      "buttonControl_0_o_btn_posedge": {
+        "ports": [
+          "buttonControl_0/o_btn_posedge",
+          "OV7670_RCV_BRAM_0/i_start_capture"
+        ]
+      },
+      "sys_clock_1": {
+        "ports": [
+          "sys_clock",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "BRAM_320x240_control_0/clk",
+          "buttonControl_0/i_clk",
+          "rst_clk_wiz_0_100M/slowest_sync_clk",
+          "OV7670_RCV_BRAM_0/i_clk",
+          "VGA_controller_0/clk",
+          "pixel_clock_generator_0/clk"
+        ]
+      },
+      "clk_wiz_0_locked": {
+        "ports": [
+          "clk_wiz_0/locked",
+          "rst_clk_wiz_0_100M/dcm_locked"
+        ]
+      },
+      "rst_clk_wiz_0_100M_peripheral_reset": {
+        "ports": [
+          "rst_clk_wiz_0_100M/peripheral_reset",
+          "OV7670_RCV_BRAM_0/i_n_reset",
+          "VGA_controller_0/reset_p",
+          "pixel_clock_generator_0/reset_p"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "clk_wiz_0/reset",
+          "rst_clk_wiz_0_100M/ext_reset_in"
+        ]
+      },
+      "rst_clk_wiz_0_100M_peripheral_aresetn": {
+        "ports": [
+          "rst_clk_wiz_0_100M/peripheral_aresetn",
+          "buttonControl_0/i_reset",
+          "BRAM_320x240_control_0/reset_p"
+        ]
+      },
+      "OV7670_RCV_BRAM_0_o_h_addr": {
+        "ports": [
+          "OV7670_RCV_BRAM_0/o_h_addr",
+          "BRAM_320x240_control_0/porta_addr_x"
+        ]
+      },
+      "OV7670_RCV_BRAM_0_o_v_addr": {
+        "ports": [
+          "OV7670_RCV_BRAM_0/o_v_addr",
+          "BRAM_320x240_control_0/porta_addr_y"
+        ]
+      },
+      "OV7670_RCV_BRAM_0_o_valid": {
+        "ports": [
+          "OV7670_RCV_BRAM_0/o_valid",
+          "BRAM_320x240_control_0/write_enable"
+        ]
+      },
+      "OV7670_RCV_BRAM_0_o_pxl_r": {
+        "ports": [
+          "OV7670_RCV_BRAM_0/o_pxl_r",
+          "BRAM_320x240_control_0/porta_vgaRed"
+        ]
+      },
+      "OV7670_RCV_BRAM_0_o_pxl_g": {
+        "ports": [
+          "OV7670_RCV_BRAM_0/o_pxl_g",
+          "BRAM_320x240_control_0/porta_vgaGreen"
+        ]
+      },
+      "OV7670_RCV_BRAM_0_o_pxl_b": {
+        "ports": [
+          "OV7670_RCV_BRAM_0/o_pxl_b",
+          "BRAM_320x240_control_0/porta_vgaBlue"
+        ]
+      },
+      "pixel_clock_generator_0_pixel_clock_pulse": {
+        "ports": [
+          "pixel_clock_generator_0/pixel_clock_pulse",
+          "VGA_controller_0/pixel_clock_pulse"
+        ]
+      },
+      "VGA_controller_0_count_h": {
+        "ports": [
+          "VGA_controller_0/count_h",
+          "BRAM_320x240_control_0/portb_addr_x"
+        ]
+      },
+      "VGA_controller_0_count_v": {
+        "ports": [
+          "VGA_controller_0/count_v",
+          "BRAM_320x240_control_0/portb_addr_y"
+        ]
+      },
+      "BRAM_320x240_control_0_portb_vgaRed": {
+        "ports": [
+          "BRAM_320x240_control_0/portb_vgaRed",
+          "VGA_controller_0/in_vgaRed"
+        ]
+      },
+      "BRAM_320x240_control_0_portb_vgaGreen": {
+        "ports": [
+          "BRAM_320x240_control_0/portb_vgaGreen",
+          "VGA_controller_0/in_vgaGreen"
+        ]
+      },
+      "BRAM_320x240_control_0_portb_vgaBlue": {
+        "ports": [
+          "BRAM_320x240_control_0/portb_vgaBlue",
+          "VGA_controller_0/in_vgaBlue"
+        ]
+      },
+      "VGA_controller_0_out_vgaBlue": {
+        "ports": [
+          "VGA_controller_0/out_vgaBlue",
+          "out_vgaBlue_0"
+        ]
+      },
+      "VGA_controller_0_out_vgaGreen": {
+        "ports": [
+          "VGA_controller_0/out_vgaGreen",
+          "out_vgaGreen_0"
+        ]
+      },
+      "VGA_controller_0_out_vgaRed": {
+        "ports": [
+          "VGA_controller_0/out_vgaRed",
+          "out_vgaRed_0"
+        ]
+      },
+      "VGA_controller_0_Hsync": {
+        "ports": [
+          "VGA_controller_0/Hsync",
+          "Hsync_0"
+        ]
+      },
+      "VGA_controller_0_Vsync": {
+        "ports": [
+          "VGA_controller_0/Vsync",
+          "Vsync_0"
+        ]
+      },
+      "OV7670_RCV_BRAM_0_o_XCLK": {
+        "ports": [
+          "OV7670_RCV_BRAM_0/o_XCLK",
+          "o_XCLK_0"
+        ]
+      },
+      "i_VS_0_1": {
+        "ports": [
+          "i_VS_0",
+          "OV7670_RCV_BRAM_0/i_VS"
+        ]
+      },
+      "i_PCLK_0_1": {
+        "ports": [
+          "i_PCLK_0",
+          "OV7670_RCV_BRAM_0/i_PCLK"
+        ]
+      },
+      "i_HS_0_1": {
+        "ports": [
+          "i_HS_0",
+          "OV7670_RCV_BRAM_0/i_HS"
+        ]
+      },
+      "i_DATA_0_1": {
+        "ports": [
+          "i_DATA_0",
+          "OV7670_RCV_BRAM_0/i_DATA"
+        ]
+      }
+    }
+  }
+}
