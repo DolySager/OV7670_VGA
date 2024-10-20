@@ -94,11 +94,11 @@ set_property -dict { PACKAGE_PIN C16   IOSTANDARD LVCMOS33 } [get_ports {i_DATA[
 set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports {i_PCLK}];#Sch name = JC1
 set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports {i_HS}];#Sch name = JC2
 set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports {i_VS}];#Sch name = JC3
-#set_property -dict { PACKAGE_PIN P18   IOSTANDARD LVCMOS33 PULLDOWN TRUE} [get_ports {row[3]}];#Sch name = JC4
+#set_property -dict { PACKAGE_PIN P18   IOSTANDARD LVCMOS33 } [get_ports {unused}];#Sch name = JC4
 set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports {o_XCLK}];#Sch name = JC7
-# set_property -dict { PACKAGE_PIN M19   IOSTANDARD LVCMOS33 } [get_ports {o_Hsync}];#Sch name = JC8
-# set_property -dict { PACKAGE_PIN P17   IOSTANDARD LVCMOS33 } [get_ports {o_Vsync}];#Sch name = JC9
-#set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports {col[3]}];#Sch name = JC10
+# set_property -dict { PACKAGE_PIN M19   IOSTANDARD LVCMOS33 } [get_ports {sda}];#Sch name = JC8
+# set_property -dict { PACKAGE_PIN P17   IOSTANDARD LVCMOS33 } [get_ports {scl}];#Sch name = JC9
+#set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports {unused}];#Sch name = JC10
 
 ##Pmod Header JXADC
 #set_property -dict { PACKAGE_PIN J3   IOSTANDARD LVCMOS33 } [get_ports {vauxp6}];#Sch name = XA1_P
