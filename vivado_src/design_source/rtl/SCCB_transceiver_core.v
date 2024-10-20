@@ -37,11 +37,11 @@ module SCCB_transceiver_core(
     assign i_byte = i_byte_selector[1] ? (i_byte_selector[0] ? i_sub_addr : i_main_addr) : i_data;
     
     // edge detector
+    // TODO: wire declaration needed
     edge_detector_n sio_d_oe_m_edge_detect_inst (i_clk, i_reset_p, sio_d_oe_m, sio_d_oe_m_posedge, sio_d_oe_m_negedge);
     edge_detector_n o_sio_c_edge_detect_inst (i_clk, i_reset_p, o_sio_c, o_sio_c_posedge, o_sio_c_negedge);
     edge_detector_n o_sccb_e_edge_detect_inst (i_clk, i_reset_p, o_sccb_e, o_sccb_e_posedge, o_sccb_e_negedge);
     edge_detector_n sio_d_out_edge_detect_inst (i_clk, i_reset_p, sio_d_out, sio_d_out_posedge, sio_d_out_negedge);
-    edge_detector_n sio_c_en_edge_detect_inst (i_clk, i_reset_p, sio_c_en, sio_c_en_posedge, sio_c_en_negedge);
     
     edge_detector_n mode0_edge_detect_inst (i_clk, i_reset_p, mode[0], mode0_posedge, mode0_negedge);
     edge_detector_n mode1_edge_detect_inst (i_clk, i_reset_p, mode[1], mode1_posedge, mode1_negedge);
@@ -69,12 +69,14 @@ module SCCB_transceiver_core(
             else if (phase_reg[0] && mode0_negedge && i_byte_selector == 2'b00) begin mode_start[3] <= 1; end   //stop bit
             else if (phase_reg[0] && mode3_negedge)                             begin phase_reg[0] <= 0; o_phase_done[0] <= 1; end
             
+            // 2-phase write operation
             else if (i_phase1_posedge)                                          begin phase_reg[1] <= 1; mode_start[2] <= 1; i_byte_selector <= 2'b00; end // start bit
             else if (phase_reg[1] && mode2_negedge && i_byte_selector == 2'b00) begin mode_start[0] <= 1; i_byte_selector = 2'b10; end // write main address
             else if (phase_reg[1] && mode0_negedge && i_byte_selector == 2'b10) begin mode_start[0] <= 1; i_byte_selector <= 2'b11; end   //write sub address 
             else if (phase_reg[1] && mode0_negedge && i_byte_selector <= 2'b11) begin mode_start[3] <= 1; end
             else if (phase_reg[1] && mode3_negedge)                             begin phase_reg[1] <= 0; o_phase_done[1] <= 1; end
             
+            // 2-phase read operation
             else if (i_phase2_posedge)                                          begin phase_reg[2] <= 1; i_byte_selector <= 2'b00; end
             else if (phase_reg[2] && mode2_negedge && i_byte_selector == 2'b00) begin mode_start[0] <= 1; i_byte_selector = 2'b10; end // write main address
             else if (phase_reg[2] && mode0_negedge && i_byte_selector == 2'b10) begin mode_start[1] <= 1; i_byte_selector <= 2'b11; end   //read data
@@ -95,10 +97,7 @@ module SCCB_transceiver_core(
             o_sio_c <= 0;
         end
         else begin
-            if (sio_c_en_negedge) begin
-                o_sio_c <= 0;
-            end
-            else if (!sio_c_en) begin
+            if (!sio_c_en) begin
                 if (sio_c_counter >= (SYS_CLK_FREQ / SCCB_CLK_FREQ / 2 - 1) ) begin
                     sio_c_counter <= 0;
                     o_sio_c <= ~o_sio_c;
