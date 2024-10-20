@@ -3,6 +3,14 @@
 따라서 Vivado 프로젝트에서 외부의 파일을 연결해 주어야 합니다.  
 또한 커스텀 IP가 있는 리포지토리 경로도 추가해 주어야 합니다.  
 
+## 간략 설명
+* "Add directories..." 이용하여 Design Source, Constraints, Simulation Source 각각의 폴더 연결
+    * Source 창 빈칸 오른쪽 클릭 - "Hierarchy Update" - "Automatic Update and Compile Order" 클릭
+    * Block Design의 경우
+        * 해당 BD 오른쪽 클릭 - "Generate Output Products..." 실행 ("Synthesis Options" 에서 "Global" 선택)
+        * 해당 BD 오른쪽 클릭 - "Create HDL Wrapper..." 실행
+* "Settings" - "IP" - "Repository" 에서 "ip_repo" 폴더 추가
+
 <details>
 <summary><b>(클릭) 1. 외부 파일 연결하기</b></summary>
 

@@ -1,14 +1,50 @@
-# Vivado & Vitis git ignore
+### Vivado ###
 
-# Vivado block design file
-## block design only needs .bd file
-**/bd/*/*
-!**/bd/*/*.bd
+# Design sources
+**/design_source/**
+!**/design_source/**/
+!**/design_source/**/*.v
+!**/design_source/**/*.bd
+!**/design_source/**/*.xci
 
-# vivado general
-## ip repo needs .tcl file
+**/bd/**
+!**/bd/**/
+!**/bd/**/*.bd
+
+**/rtl/**
+!**/rtl/**/
+!**/rtl/**/*.v
+
+**/xci/**
+!**/xci/**/
+!**/xci/**/*.xci
+
+# Constraints
+**/constraints/**
+!**/constraints/**/
+!**/constraints/**/*.xdc
+
+# Simulation sources
+**/simulation_source/**
+!**/simulation_source/**/
+!**/simulation_source/**/*.v
+!**/simulation_source/**/*.wcfg
+
+**/wcfg/**
+!**/wcfg/**/
+!**/wcfg/**/*.wcfg
+
+# .tcl file not need except in IP repo
 *.tcl
 !**/ip_repo/**/*.tcl
+
+# Platform (hardware) export
+**/drivers/
+*.bit
+*.mmi
+
+
+### Vitis ###
 
 # Vitis workspace file
 .metadata/
@@ -16,10 +52,14 @@ RemoteSystemsTempFiles/
 *.analytics
 IDE.log
 
-# Platform (hardware) export 
-**/drivers/
-*.bit
-*.mmi
+
+### Others ###
 
 # VSCode related
 **/.vscode/
+
+
+### Global whitelist ###
+
+# README files
+!**/README.md
