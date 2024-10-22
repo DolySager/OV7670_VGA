@@ -26,6 +26,10 @@ module OV7670_RCV_BRAM#(
         input       wire        [DATA_WIDTH - 1 : 0]        i_DATA,
         output      wire                                    o_XCLK,
 
+        output      wire                                    o_PCLK,
+        output      wire                                    o_VS,
+        output      wire                                    o_HS,
+
         // VGA_BRAM_IF
         output      wire        [9 : 0]                     o_h_addr,
         output      wire        [9 : 0]                     o_v_addr,
@@ -59,6 +63,9 @@ module OV7670_RCV_BRAM#(
             .i_PCLK                                         (i_PCLK),
             .i_VS                                           (i_VS),
             .i_HS                                           (i_HS),
+            .o_PCLK                                         (o_PCLK),
+            .o_VS                                           (o_VS),
+            .o_HS                                           (o_HS),
             .i_DATA                                         (i_DATA),
             .o_XCLK                                         (o_XCLK),
             .o_pixel_data                                   (w_pixel_data),

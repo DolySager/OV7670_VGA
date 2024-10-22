@@ -23,6 +23,10 @@ module Receiver #(
         input       wire                                    i_HS,
         input       wire        [DATA_WIDTH - 1 : 0]        i_DATA,
 
+        output      wire                                    o_PCLK,
+        output      wire                                    o_VS,
+        output      wire                                    o_HS,
+
         // XCLK_GEN IF
         output      wire                                    o_en_xclk,
 
@@ -89,6 +93,14 @@ module Receiver #(
                     reg         [$clog2(H_WIDTH) : 0]       r_h_addr;
                     reg         [$clog2(V_WIDTH) : 0]       r_v_addr;
 
+        edge_detector_n                                     ED_VALID(
+            .i_clk                                          (i_clk),
+            .i_reset                                        (~i_n_reset),
+            .i_cp                                           (r_valid),
+            .o_posedge                                      (w_valid_posedge),
+            .o_negedge                                      ()
+        );
+
         edge_detector_n                                     ED_PCLK(
             .i_clk                                          (i_clk),
             .i_reset                                        (~i_n_reset),
@@ -152,29 +164,28 @@ module Receiver #(
                     r_flag <= 0;
                 end
                 if (w_HS) begin
-                    if (r_pclk_count >= (16 - 1) && r_pclk_count <= ((640)*2 + 16 - 1)) begin
-                        if (!r_flag) begin : RCV_FIRST_BYTE
-                            r_flag <= ~r_flag;
-                            r_pixel_data[2*DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
-                            r_valid <= 0;
-                        end
-                        else if (r_flag) begin : RCV_SECOND_BYTE
-                            r_flag <= ~r_flag;
-                            r_pixel_data[DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
-                            r_valid <= 1;
-                            // if (r_h_addr >= H_WIDTH) begin
-                            //     r_h_addr <= 0;
-                            //     // r_v_addr <= r_v_addr + 1;
-                            // end
-                            // else begin
-                                r_h_addr <= r_h_addr + 1;
-                            // end
-                        end
-                        else begin
-                            r_valid <= 0;
-                        end
+                    if (!r_flag) begin : RCV_FIRST_BYTE
+                        r_flag <= ~r_flag;
+                        r_pixel_data[2*DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
+                        // r_pixel_data[15 : 8] <= i_DATA;
+                        r_valid <= 0;
                     end
-                    r_pclk_count <= r_pclk_count + 1;
+                    else if (r_flag) begin : RCV_SECOND_BYTE
+                        r_flag <= ~r_flag;
+                        r_pixel_data[DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
+                        // r_pixel_data[7 : 0] <= i_DATA;
+                        r_valid <= 1;
+                        // if (r_h_addr >= H_WIDTH) begin
+                        //     r_h_addr <= 0;
+                        //     // r_v_addr <= r_v_addr + 1;
+                        // end
+                        // else begin
+                            r_h_addr <= r_h_addr + 1;
+                        // end
+                    end
+                    else begin
+                        r_valid <= 0;
+                    end
                 end
             end
         end
@@ -218,12 +229,16 @@ module Receiver #(
         assign  o_pixel_data        =       r_pixel_data[PXL_WIDTH - 1 : 0];
         assign  o_h_addr            =       r_h_addr;
         assign  o_v_addr            =       r_v_addr;
-        assign  o_valid             =       r_valid;
+        assign  o_valid             =       w_valid_posedge;
         assign  o_en_xclk           =       r_en_xclk;
 
         assign  w_PCLK              =       r_PCLK_zz;
         assign  w_VS                =       r_VS_zz;
         assign  w_HS                =       r_HS_zz;
         assign  w_DATA              =       r_DATA_zz;
+
+        assign  o_PCLK              =       w_PCLK;
+        assign  o_VS                =       w_VS;
+        assign  o_HS                =       w_HS;
 
 endmodule

@@ -11,15 +11,24 @@ u8 myip_SCCB_transceiver_twoPhaseRead (UINTPTR BaseAddress, u8 main_addr);
 int main()
 {
     init_platform();
-    usleep(1000000);
+    usleep(3000000);
     u8 value;
 
+	myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x12, 0x80);
+    usleep(1000000);
+	myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x12, 0x00);
+    usleep(1000000);
+
 	myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x12, 0x04);
-	myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x40, 0xC0);
+	myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x40, 0xD0);
 	myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x8C, 0x02);
+
 
 	while(1)
 	{
+		value = myip_SCCB_transceiver_twoPhaseRead(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x43);
+		xil_printf("value: %d\n\r", value);
+		usleep(1000000);
 	}
 
     cleanup_platform();
