@@ -130,7 +130,7 @@ module SCCB_transceiver_core(
         end
         else begin
             // write operation
-            if (mode_start[0]) begin mode[0] <= 1; sio_d_oe_m <= 0; sio_d_bitCount <= 0; sio_c_en <= 0; dontcarebit_mode <= 1; end
+            if (mode_start[0]) begin mode[0] <= 1; sio_d_oe_m <= 0; sio_d_bitCount <= 0; sio_c_en <= 0; dontcarebit_mode <= 1; sio_d_out <= i_byte[7]; end
             else if (mode[0] && o_sio_c_negedge && dontcarebit_mode) sio_d_out <= i_byte[7 - sio_d_bitCount];
             else if (mode[0] && o_sio_c_posedge && dontcarebit_mode) sio_d_bitCount <= sio_d_bitCount + 1;
             else if (mode[0] && sio_d_bitCount2_negedge) dontcarebit_mode <= 0;
@@ -138,11 +138,11 @@ module SCCB_transceiver_core(
             else if (mode[0] && o_sio_c_negedge && !dontcarebit_mode && sio_d_oe_m) begin dontcarebit_mode <= 1; mode[0] <= 0; sio_c_en <= 1; sio_d_out <= 0; end
 
             //read operation
-            else if (mode_start[1]) begin mode[1] <= 1; sio_d_oe_m <= 1; sio_d_bitCount <= 0; o_data <= 0; sio_c_en <= 0; nabit_mode <= 1; end 
+            else if (mode_start[1]) begin mode[1] <= 1; sio_d_oe_m <= 1; sio_d_bitCount <= 0; o_data <= 0; sio_c_en <= 0; nabit_mode <= 1; sio_d_out <= 1; end 
             else if (mode[1] && o_sio_c_posedge && nabit_mode) o_data[7 - sio_d_bitCount] <= sio_d_in;
             else if (mode[1] && o_sio_c_negedge && nabit_mode) sio_d_bitCount <= sio_d_bitCount + 1;
-            else if (mode[1] && sio_d_bitCount2_negedge) nabit_mode <= 0;
-            else if (mode[1] && o_sio_c_negedge && !nabit_mode && sio_d_oe_m) begin sio_d_oe_m <= 0; sio_d_out <= 1; end
+            else if (mode[1] && sio_d_bitCount2_negedge) begin nabit_mode <= 0; sio_d_oe_m <= 0; sio_d_out <= 1; end
+            // else if (mode[1] && o_sio_c_negedge && !nabit_mode && sio_d_oe_m) begin sio_d_oe_m <= 0; sio_d_out <= 1; end    // bit count already overflows during previous SCL negedge
             else if (mode[1] && o_sio_c_negedge && !nabit_mode && !sio_d_oe_m) begin nabit_mode <= 1; mode[1] <= 0; sio_c_en <= 1; sio_d_out <= 0; end
 
             // start bit
