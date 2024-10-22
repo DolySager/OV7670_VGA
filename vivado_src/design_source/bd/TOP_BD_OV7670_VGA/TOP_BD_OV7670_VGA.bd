@@ -137,7 +137,7 @@
     "components": {
       "clk_wiz_0": {
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-        "xci_name": "TOP_BD_OV7670_VGA_clk_wiz_0_3",
+        "xci_name": "TOP_BD_OV7670_VGA_clk_wiz_0_2",
         "parameters": {
           "CLKOUT1_JITTER": {
             "value": "130.958"
@@ -188,11 +188,11 @@
       },
       "rst_clk_wiz_0_100M": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
-        "xci_name": "TOP_BD_OV7670_VGA_rst_clk_wiz_0_100M_3"
+        "xci_name": "TOP_BD_OV7670_VGA_rst_clk_wiz_0_100M_2"
       },
       "buttonControl_0": {
         "vlnv": "xilinx.com:module_ref:buttonControl:1.0",
-        "xci_name": "TOP_BD_OV7670_VGA_buttonControl_0_3",
+        "xci_name": "TOP_BD_OV7670_VGA_buttonControl_0_2",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "buttonControl",
@@ -226,7 +226,7 @@
       },
       "VGA_controller_0": {
         "vlnv": "xilinx.com:module_ref:VGA_controller:1.0",
-        "xci_name": "TOP_BD_OV7670_VGA_VGA_controller_0_3",
+        "xci_name": "TOP_BD_OV7670_VGA_VGA_controller_0_2",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "VGA_controller",
@@ -297,7 +297,7 @@
       },
       "pixel_clock_generator_0": {
         "vlnv": "xilinx.com:module_ref:pixel_clock_generator:1.0",
-        "xci_name": "TOP_BD_OV7670_VGA_pixel_clock_generator_0_3",
+        "xci_name": "TOP_BD_OV7670_VGA_pixel_clock_generator_0_2",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "pixel_clock_generator",
@@ -319,7 +319,7 @@
       },
       "pixel_coord_converter_0": {
         "vlnv": "xilinx.com:module_ref:pixel_coord_converter:1.0",
-        "xci_name": "TOP_BD_OV7670_VGA_pixel_coord_converter_0_3",
+        "xci_name": "TOP_BD_OV7670_VGA_pixel_coord_converter_0_2",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "pixel_coord_converter",
@@ -350,7 +350,7 @@
       },
       "BRAM_320x240_control_0": {
         "vlnv": "xilinx.com:module_ref:BRAM_320x240_controller:1.0",
-        "xci_name": "TOP_BD_OV7670_VGA_BRAM_320x240_control_0_3",
+        "xci_name": "TOP_BD_OV7670_VGA_BRAM_320x240_control_0_2",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "BRAM_320x240_controller",
@@ -422,11 +422,11 @@
       },
       "myip_SCCB_Transceiver_0": {
         "vlnv": "xilinx.com:user:myip_SCCB_Transceiver:1.0",
-        "xci_name": "TOP_BD_OV7670_VGA_myip_SCCB_Transceiver_0_0"
+        "xci_name": "TOP_BD_OV7670_VGA_myip_SCCB_Transceiver_0_4"
       },
       "microblaze_0": {
         "vlnv": "xilinx.com:ip:microblaze:11.0",
-        "xci_name": "TOP_BD_OV7670_VGA_microblaze_0_0",
+        "xci_name": "TOP_BD_OV7670_VGA_microblaze_0_5",
         "parameters": {
           "C_DEBUG_ENABLED": {
             "value": "1"
@@ -482,15 +482,15 @@
         "components": {
           "dlmb_v10": {
             "vlnv": "xilinx.com:ip:lmb_v10:3.0",
-            "xci_name": "TOP_BD_OV7670_VGA_dlmb_v10_0"
+            "xci_name": "TOP_BD_OV7670_VGA_dlmb_v10_5"
           },
           "ilmb_v10": {
             "vlnv": "xilinx.com:ip:lmb_v10:3.0",
-            "xci_name": "TOP_BD_OV7670_VGA_ilmb_v10_0"
+            "xci_name": "TOP_BD_OV7670_VGA_ilmb_v10_5"
           },
           "dlmb_bram_if_cntlr": {
             "vlnv": "xilinx.com:ip:lmb_bram_if_cntlr:4.0",
-            "xci_name": "TOP_BD_OV7670_VGA_dlmb_bram_if_cntlr_0",
+            "xci_name": "TOP_BD_OV7670_VGA_dlmb_bram_if_cntlr_5",
             "parameters": {
               "C_ECC": {
                 "value": "0"
@@ -509,7 +509,7 @@
           },
           "ilmb_bram_if_cntlr": {
             "vlnv": "xilinx.com:ip:lmb_bram_if_cntlr:4.0",
-            "xci_name": "TOP_BD_OV7670_VGA_ilmb_bram_if_cntlr_0",
+            "xci_name": "TOP_BD_OV7670_VGA_ilmb_bram_if_cntlr_5",
             "parameters": {
               "C_ECC": {
                 "value": "0"
@@ -518,7 +518,7 @@
           },
           "lmb_bram": {
             "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-            "xci_name": "TOP_BD_OV7670_VGA_lmb_bram_0",
+            "xci_name": "TOP_BD_OV7670_VGA_lmb_bram_5",
             "parameters": {
               "Memory_Type": {
                 "value": "True_Dual_Port_RAM"
@@ -534,12 +534,6 @@
             "interface_ports": [
               "ILMB",
               "ilmb_v10/LMB_M"
-            ]
-          },
-          "microblaze_0_ilmb_cntlr": {
-            "interface_ports": [
-              "ilmb_bram_if_cntlr/BRAM_PORT",
-              "lmb_bram/BRAM_PORTB"
             ]
           },
           "microblaze_0_dlmb_cntlr": {
@@ -564,6 +558,12 @@
             "interface_ports": [
               "DLMB",
               "dlmb_v10/LMB_M"
+            ]
+          },
+          "microblaze_0_ilmb_cntlr": {
+            "interface_ports": [
+              "ilmb_bram_if_cntlr/BRAM_PORT",
+              "lmb_bram/BRAM_PORTB"
             ]
           }
         },
@@ -927,6 +927,24 @@
           }
         },
         "interface_nets": {
+          "xbar_to_m01_couplers": {
+            "interface_ports": [
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
+            ]
+          },
+          "m02_couplers_to_microblaze_0_axi_periph": {
+            "interface_ports": [
+              "M02_AXI",
+              "m02_couplers/M_AXI"
+            ]
+          },
+          "xbar_to_m02_couplers": {
+            "interface_ports": [
+              "xbar/M02_AXI",
+              "m02_couplers/S_AXI"
+            ]
+          },
           "microblaze_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
@@ -955,24 +973,6 @@
             "interface_ports": [
               "M01_AXI",
               "m01_couplers/M_AXI"
-            ]
-          },
-          "m02_couplers_to_microblaze_0_axi_periph": {
-            "interface_ports": [
-              "M02_AXI",
-              "m02_couplers/M_AXI"
-            ]
-          },
-          "xbar_to_m01_couplers": {
-            "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
-            ]
-          },
-          "xbar_to_m02_couplers": {
-            "interface_ports": [
-              "xbar/M02_AXI",
-              "m02_couplers/S_AXI"
             ]
           }
         },
@@ -1018,7 +1018,12 @@
       },
       "microblaze_0_xlconcat": {
         "vlnv": "xilinx.com:ip:xlconcat:2.1",
-        "xci_name": "TOP_BD_OV7670_VGA_microblaze_0_xlconcat_0"
+        "xci_name": "TOP_BD_OV7670_VGA_microblaze_0_xlconcat_0",
+        "parameters": {
+          "NUM_PORTS": {
+            "value": "2"
+          }
+        }
       },
       "mdm_1": {
         "vlnv": "xilinx.com:ip:mdm:3.2",
@@ -1038,7 +1043,7 @@
       },
       "OV7670_RCV_BRAM_0": {
         "vlnv": "xilinx.com:module_ref:OV7670_RCV_BRAM:1.0",
-        "xci_name": "TOP_BD_OV7670_VGA_OV7670_RCV_BRAM_0_3",
+        "xci_name": "TOP_BD_OV7670_VGA_OV7670_RCV_BRAM_0_2",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "OV7670_RCV_BRAM",
@@ -1136,16 +1141,16 @@
       }
     },
     "interface_nets": {
-      "microblaze_0_interrupt": {
-        "interface_ports": [
-          "microblaze_0_axi_intc/interrupt",
-          "microblaze_0/INTERRUPT"
-        ]
-      },
       "microblaze_0_axi_periph_M01_AXI": {
         "interface_ports": [
           "microblaze_0_axi_periph/M01_AXI",
           "myip_SCCB_Transceiver_0/S00_AXI"
+        ]
+      },
+      "microblaze_0_ilmb_1": {
+        "interface_ports": [
+          "microblaze_0/ILMB",
+          "microblaze_0_local_memory/ILMB"
         ]
       },
       "microblaze_0_axi_periph_M02_AXI": {
@@ -1154,10 +1159,10 @@
           "axi_uartlite_0/S_AXI"
         ]
       },
-      "microblaze_0_ilmb_1": {
+      "microblaze_0_interrupt": {
         "interface_ports": [
-          "microblaze_0/ILMB",
-          "microblaze_0_local_memory/ILMB"
+          "microblaze_0_axi_intc/interrupt",
+          "microblaze_0/INTERRUPT"
         ]
       },
       "axi_uartlite_0_UART": {

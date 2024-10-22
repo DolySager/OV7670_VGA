@@ -39,9 +39,9 @@
 !**/ip_repo/**/*.tcl
 
 # Platform (hardware) export
-**/drivers/
-*.bit
-*.mmi
+**/hardware/**
+!**/hardware/**/
+!**/hardware/**/*.xsa
 
 
 ### Vitis ###
