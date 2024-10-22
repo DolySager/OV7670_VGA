@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_SCCB_transceiver_core_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_SCCB_transceiver_core" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="45000fs"></ZoomStartTime>
+      <ZoomEndTime time="298845001fs"></ZoomEndTime>
+      <Cursor1Time time="176000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="241"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="55" />
+   <wave_markers>
+      <marker time="20225000" label="" />
+      <marker time="30225000" label="" />
+      <marker time="40225000" label="" />
+      <marker time="50225000" label="" />
+      <marker time="60225000" label="" />
+      <marker time="70225000" label="" />
+      <marker time="80225000" label="" />
+      <marker time="10225000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_clk" type="logic">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+      <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_reset_p" type="logic">
+      <obj_property name="ElementShortName">i_reset_p</obj_property>
+      <obj_property name="ObjectShortName">i_reset_p</obj_property>
+      <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_main_addr" type="array">
+      <obj_property name="ElementShortName">i_main_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_main_addr[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_sub_addr" type="array">
+      <obj_property name="ElementShortName">i_sub_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_sub_addr[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_data" type="array">
+      <obj_property name="ElementShortName">i_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_data[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_phase" type="array">
+      <obj_property name="ElementShortName">i_phase[2:0]</obj_property>
+      <obj_property name="ObjectShortName">i_phase[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider68">
+      <obj_property name="label">CS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/o_sccb_e" type="logic">
+      <obj_property name="ElementShortName">o_sccb_e</obj_property>
+      <obj_property name="ObjectShortName">o_sccb_e</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/o_sccb_e_posedge" type="logic">
+      <obj_property name="ElementShortName">o_sccb_e_posedge</obj_property>
+      <obj_property name="ObjectShortName">o_sccb_e_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/o_sccb_e_negedge" type="logic">
+      <obj_property name="ElementShortName">o_sccb_e_negedge</obj_property>
+      <obj_property name="ObjectShortName">o_sccb_e_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider63">
+      <obj_property name="label">SCLK</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_c_counter" type="array">
+      <obj_property name="ElementShortName">sio_c_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sio_c_counter[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_c_en" type="logic">
+      <obj_property name="ElementShortName">sio_c_en</obj_property>
+      <obj_property name="ObjectShortName">sio_c_en</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/o_sio_c" type="logic">
+      <obj_property name="ElementShortName">o_sio_c</obj_property>
+      <obj_property name="ObjectShortName">o_sio_c</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/o_sio_c_posedge" type="logic">
+      <obj_property name="ElementShortName">o_sio_c_posedge</obj_property>
+      <obj_property name="ObjectShortName">o_sio_c_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/o_sio_c_negedge" type="logic">
+      <obj_property name="ElementShortName">o_sio_c_negedge</obj_property>
+      <obj_property name="ObjectShortName">o_sio_c_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider65">
+      <obj_property name="label">SDA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/io_sio_d" type="logic">
+      <obj_property name="ElementShortName">io_sio_d</obj_property>
+      <obj_property name="ObjectShortName">io_sio_d</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_d_in" type="logic">
+      <obj_property name="ElementShortName">sio_d_in</obj_property>
+      <obj_property name="ObjectShortName">sio_d_in</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_d_out" type="logic">
+      <obj_property name="ElementShortName">sio_d_out</obj_property>
+      <obj_property name="ObjectShortName">sio_d_out</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_d_out_posedge" type="logic">
+      <obj_property name="ElementShortName">sio_d_out_posedge</obj_property>
+      <obj_property name="ObjectShortName">sio_d_out_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_d_out_negedge" type="logic">
+      <obj_property name="ElementShortName">sio_d_out_negedge</obj_property>
+      <obj_property name="ObjectShortName">sio_d_out_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/o_data" type="array">
+      <obj_property name="ElementShortName">o_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider65">
+      <obj_property name="label">PHASE CTRL</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/o_phase_done" type="array">
+      <obj_property name="ElementShortName">o_phase_done[2:0]</obj_property>
+      <obj_property name="ObjectShortName">o_phase_done[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode" type="array">
+      <obj_property name="ElementShortName">mode[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mode[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_d_oe_m" type="logic">
+      <obj_property name="ElementShortName">sio_d_oe_m</obj_property>
+      <obj_property name="ObjectShortName">sio_d_oe_m</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_d_bitCount" type="array">
+      <obj_property name="ElementShortName">sio_d_bitCount[2:0]</obj_property>
+      <obj_property name="ObjectShortName">sio_d_bitCount[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/dontcarebit_mode" type="logic">
+      <obj_property name="ElementShortName">dontcarebit_mode</obj_property>
+      <obj_property name="ObjectShortName">dontcarebit_mode</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/nabit_mode" type="logic">
+      <obj_property name="ElementShortName">nabit_mode</obj_property>
+      <obj_property name="ObjectShortName">nabit_mode</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_byte" type="array">
+      <obj_property name="ElementShortName">i_byte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_byte[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_byte_selector" type="array">
+      <obj_property name="ElementShortName">i_byte_selector[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_byte_selector[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/phase_reg" type="array">
+      <obj_property name="ElementShortName">phase_reg[2:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_reg[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode_done" type="array">
+      <obj_property name="ElementShortName">mode_done[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mode_done[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode_start" type="array">
+      <obj_property name="ElementShortName">mode_start[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mode_start[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_d_oe_m_posedge" type="logic">
+      <obj_property name="ElementShortName">sio_d_oe_m_posedge</obj_property>
+      <obj_property name="ObjectShortName">sio_d_oe_m_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_d_oe_m_negedge" type="logic">
+      <obj_property name="ElementShortName">sio_d_oe_m_negedge</obj_property>
+      <obj_property name="ObjectShortName">sio_d_oe_m_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode0_posedge" type="logic">
+      <obj_property name="ElementShortName">mode0_posedge</obj_property>
+      <obj_property name="ObjectShortName">mode0_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode0_negedge" type="logic">
+      <obj_property name="ElementShortName">mode0_negedge</obj_property>
+      <obj_property name="ObjectShortName">mode0_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode1_posedge" type="logic">
+      <obj_property name="ElementShortName">mode1_posedge</obj_property>
+      <obj_property name="ObjectShortName">mode1_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode1_negedge" type="logic">
+      <obj_property name="ElementShortName">mode1_negedge</obj_property>
+      <obj_property name="ObjectShortName">mode1_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode2_posedge" type="logic">
+      <obj_property name="ElementShortName">mode2_posedge</obj_property>
+      <obj_property name="ObjectShortName">mode2_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode2_negedge" type="logic">
+      <obj_property name="ElementShortName">mode2_negedge</obj_property>
+      <obj_property name="ObjectShortName">mode2_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode3_posedge" type="logic">
+      <obj_property name="ElementShortName">mode3_posedge</obj_property>
+      <obj_property name="ObjectShortName">mode3_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/mode3_negedge" type="logic">
+      <obj_property name="ElementShortName">mode3_negedge</obj_property>
+      <obj_property name="ObjectShortName">mode3_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_phase0_posedge" type="logic">
+      <obj_property name="ElementShortName">i_phase0_posedge</obj_property>
+      <obj_property name="ObjectShortName">i_phase0_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_phase0_negedge" type="logic">
+      <obj_property name="ElementShortName">i_phase0_negedge</obj_property>
+      <obj_property name="ObjectShortName">i_phase0_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_phase1_posedge" type="logic">
+      <obj_property name="ElementShortName">i_phase1_posedge</obj_property>
+      <obj_property name="ObjectShortName">i_phase1_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_phase1_negedge" type="logic">
+      <obj_property name="ElementShortName">i_phase1_negedge</obj_property>
+      <obj_property name="ObjectShortName">i_phase1_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_phase2_posedge" type="logic">
+      <obj_property name="ElementShortName">i_phase2_posedge</obj_property>
+      <obj_property name="ObjectShortName">i_phase2_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/i_phase2_negedge" type="logic">
+      <obj_property name="ElementShortName">i_phase2_negedge</obj_property>
+      <obj_property name="ObjectShortName">i_phase2_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_d_bitCount2_posedge" type="logic">
+      <obj_property name="ElementShortName">sio_d_bitCount2_posedge</obj_property>
+      <obj_property name="ObjectShortName">sio_d_bitCount2_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/sio_d_bitCount2_negedge" type="logic">
+      <obj_property name="ElementShortName">sio_d_bitCount2_negedge</obj_property>
+      <obj_property name="ObjectShortName">sio_d_bitCount2_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/SYS_CLK_FREQ" type="array">
+      <obj_property name="ElementShortName">SYS_CLK_FREQ[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SYS_CLK_FREQ[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_SCCB_transceiver_core/DUT/SCCB_CLK_FREQ" type="array">
+      <obj_property name="ElementShortName">SCCB_CLK_FREQ[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SCCB_CLK_FREQ[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

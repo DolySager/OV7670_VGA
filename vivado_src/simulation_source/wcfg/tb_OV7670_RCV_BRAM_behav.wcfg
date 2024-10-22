@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_OV7670_RCV_BRAM_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_OV7670_RCV_BRAM" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="553000fs"></ZoomStartTime>
+      <ZoomEndTime time="1033001fs"></ZoomEndTime>
+      <Cursor1Time time="775000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="250"></NameColumnWidth>
+      <ValueColumnWidth column_width="240"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="45" />
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_clk" type="logic">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+      <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_n_reset" type="logic">
+      <obj_property name="ElementShortName">i_n_reset</obj_property>
+      <obj_property name="ObjectShortName">i_n_reset</obj_property>
+      <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_next_frame" type="logic">
+      <obj_property name="ElementShortName">i_next_frame</obj_property>
+      <obj_property name="ObjectShortName">i_next_frame</obj_property>
+      <obj_property name="CustomSignalColor">#DCDCDC</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_start_capture" type="logic">
+      <obj_property name="ElementShortName">i_start_capture</obj_property>
+      <obj_property name="ObjectShortName">i_start_capture</obj_property>
+      <obj_property name="CustomSignalColor">#DCDCDC</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_present_state" type="array">
+      <obj_property name="ElementShortName">o_present_state[5:0]</obj_property>
+      <obj_property name="ObjectShortName">o_present_state[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_PCLK" type="logic">
+      <obj_property name="ElementShortName">i_PCLK</obj_property>
+      <obj_property name="ObjectShortName">i_PCLK</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_VS" type="logic">
+      <obj_property name="ElementShortName">i_VS</obj_property>
+      <obj_property name="ObjectShortName">i_VS</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_HS" type="logic">
+      <obj_property name="ElementShortName">i_HS</obj_property>
+      <obj_property name="ObjectShortName">i_HS</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_DATA" type="array">
+      <obj_property name="ElementShortName">i_DATA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_DATA[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_en_xclk" type="logic">
+      <obj_property name="ElementShortName">o_en_xclk</obj_property>
+      <obj_property name="ObjectShortName">o_en_xclk</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_valid" type="logic">
+      <obj_property name="ElementShortName">o_valid</obj_property>
+      <obj_property name="ObjectShortName">o_valid</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_pixel_data" type="array">
+      <obj_property name="ElementShortName">o_pixel_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">o_pixel_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_h_addr" type="array">
+      <obj_property name="ElementShortName">o_h_addr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">o_h_addr[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_v_addr" type="array">
+      <obj_property name="ElementShortName">o_v_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">o_v_addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/present_state" type="array">
+      <obj_property name="ElementShortName">present_state[5:0]</obj_property>
+      <obj_property name="ObjectShortName">present_state[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/next_state" type="array">
+      <obj_property name="ElementShortName">next_state[5:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_en_xclk" type="logic">
+      <obj_property name="ElementShortName">r_en_xclk</obj_property>
+      <obj_property name="ObjectShortName">r_en_xclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_flag" type="logic">
+      <obj_property name="ElementShortName">r_flag</obj_property>
+      <obj_property name="ObjectShortName">r_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_pixel_data" type="array">
+      <obj_property name="ElementShortName">r_pixel_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_pixel_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_valid" type="logic">
+      <obj_property name="ElementShortName">r_valid</obj_property>
+      <obj_property name="ObjectShortName">r_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_pclk_posedge" type="logic">
+      <obj_property name="ElementShortName">w_pclk_posedge</obj_property>
+      <obj_property name="ObjectShortName">w_pclk_posedge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_pclk_negedge" type="logic">
+      <obj_property name="ElementShortName">w_pclk_negedge</obj_property>
+      <obj_property name="ObjectShortName">w_pclk_negedge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_href_posedge" type="logic">
+      <obj_property name="ElementShortName">w_href_posedge</obj_property>
+      <obj_property name="ObjectShortName">w_href_posedge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_href_negedge" type="logic">
+      <obj_property name="ElementShortName">w_href_negedge</obj_property>
+      <obj_property name="ObjectShortName">w_href_negedge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_vsync_posedge" type="logic">
+      <obj_property name="ElementShortName">w_vsync_posedge</obj_property>
+      <obj_property name="ObjectShortName">w_vsync_posedge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_vsync_negedge" type="logic">
+      <obj_property name="ElementShortName">w_vsync_negedge</obj_property>
+      <obj_property name="ObjectShortName">w_vsync_negedge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_valid_posedge" type="logic">
+      <obj_property name="ElementShortName">w_valid_posedge</obj_property>
+      <obj_property name="ObjectShortName">w_valid_posedge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_h_addr" type="array">
+      <obj_property name="ElementShortName">r_h_addr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">r_h_addr[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_v_addr" type="array">
+      <obj_property name="ElementShortName">r_v_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">r_v_addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/DATA_WIDTH" type="array">
+      <obj_property name="ElementShortName">DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/H_WIDTH" type="array">
+      <obj_property name="ElementShortName">H_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">H_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/V_WIDTH" type="array">
+      <obj_property name="ElementShortName">V_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">V_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/R_WIDTH" type="array">
+      <obj_property name="ElementShortName">R_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">R_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/G_WIDTH" type="array">
+      <obj_property name="ElementShortName">G_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">G_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/B_WIDTH" type="array">
+      <obj_property name="ElementShortName">B_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">B_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/PXL_WIDTH" type="array">
+      <obj_property name="ElementShortName">PXL_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PXL_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/PXL_WIDTH_RGB565" type="array">
+      <obj_property name="ElementShortName">PXL_WIDTH_RGB565[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PXL_WIDTH_RGB565[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/PXL_WIDTH_RGB555" type="array">
+      <obj_property name="ElementShortName">PXL_WIDTH_RGB555[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PXL_WIDTH_RGB555[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/PXL_WIDTH_RGB444" type="array">
+      <obj_property name="ElementShortName">PXL_WIDTH_RGB444[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PXL_WIDTH_RGB444[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/IDLE" type="array">
+      <obj_property name="ElementShortName">IDLE[5:0]</obj_property>
+      <obj_property name="ObjectShortName">IDLE[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/WAIT_VSYNC_FALL" type="array">
+      <obj_property name="ElementShortName">WAIT_VSYNC_FALL[5:0]</obj_property>
+      <obj_property name="ObjectShortName">WAIT_VSYNC_FALL[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/WAIT_HREF_RISE" type="array">
+      <obj_property name="ElementShortName">WAIT_HREF_RISE[5:0]</obj_property>
+      <obj_property name="ObjectShortName">WAIT_HREF_RISE[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/WAIT_FIRST_BYTE" type="array">
+      <obj_property name="ElementShortName">WAIT_FIRST_BYTE[5:0]</obj_property>
+      <obj_property name="ObjectShortName">WAIT_FIRST_BYTE[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/WAIT_SECOND_BYTE" type="array">
+      <obj_property name="ElementShortName">WAIT_SECOND_BYTE[5:0]</obj_property>
+      <obj_property name="ObjectShortName">WAIT_SECOND_BYTE[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/FRAME_DONE" type="array">
+      <obj_property name="ElementShortName">FRAME_DONE[5:0]</obj_property>
+      <obj_property name="ObjectShortName">FRAME_DONE[5:0]</obj_property>
+   </wvobject>
+</wave_config>

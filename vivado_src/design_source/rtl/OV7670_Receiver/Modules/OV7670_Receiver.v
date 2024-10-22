@@ -13,6 +13,7 @@ module OV7670_Receiver#(
         // System IF
         input       wire                                    i_clk,
         input       wire                                    i_n_reset,
+        input       wire                                    i_xclk,
 
         input       wire                                    i_next_frame,
         input       wire                                    i_start_capture,
@@ -65,6 +66,7 @@ module OV7670_Receiver#(
             .i_clk                                          (i_clk),
             .i_n_reset                                      (i_n_reset),
             .i_enable                                       (w_en_xclk),
+            .i_xclk                                         (i_xclk),
             .o_xclk                                         (o_XCLK)
         );
 endmodule

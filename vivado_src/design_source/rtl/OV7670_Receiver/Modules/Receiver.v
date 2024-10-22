@@ -47,12 +47,32 @@ module Receiver #(
                     reg         [5 : 0]                     present_state;
                     reg         [5 : 0]                     next_state;
 
+                    // Synchronize
+                    reg                                     r_PCLK;
+                    reg                                     r_VS;
+                    reg                                     r_HS;
+                    reg         [7 : 0]                     r_DATA;
+                    
+                    reg                                     r_PCLK_z;
+                    reg                                     r_VS_z;
+                    reg                                     r_HS_z;
+                    reg         [7 : 0]                     r_DATA_z;
+                    
+                    reg                                     r_PCLK_zz;
+                    reg                                     r_VS_zz;
+                    reg                                     r_HS_zz;
+                    reg         [7 : 0]                     r_DATA_zz;
+
+                    wire                                    w_PCLK;
+                    wire                                    w_VS;
+                    wire                                    w_HS;
+                    wire        [7 : 0]                     w_DATA;
+
                     reg                                     r_en_xclk;
                     reg         [2*DATA_WIDTH - 1 : 0]      r_pixel_data;
                     reg                                     r_valid;
 
                     wire                                    w_pclk_posedge;
-                    reg                                     r_pclk_posedge_z;
                     wire                                    w_pclk_negedge;
 
                     wire                                    w_href_posedge;
@@ -61,36 +81,39 @@ module Receiver #(
                     wire                                    w_vsync_posedge;
                     wire                                    w_vsync_negedge;
 
+                    wire                                    w_valid_posedge;
+
                     reg                                     r_flag;
 
+                    reg         [9 : 0]                     r_porch_count;
                     reg         [$clog2(H_WIDTH) : 0]       r_h_addr;
                     reg         [$clog2(V_WIDTH) : 0]       r_v_addr;
 
         edge_detector_n                                     ED_PCLK(
             .i_clk                                          (i_clk),
             .i_reset                                        (~i_n_reset),
-            .i_cp                                           (i_PCLK),
+            .i_cp                                           (w_PCLK),
             .o_posedge                                      (w_pclk_posedge),
             .o_negedge                                      (w_pclk_negedge)
         );
 
         edge_detector_n                                     ED_HREF(
-            .i_clk                                          (i_clk),
+            .i_clk                                          (w_PCLK),
             .i_reset                                        (~i_n_reset),
-            .i_cp                                           (i_HS),
+            .i_cp                                           (w_HS),
             .o_posedge                                      (w_href_posedge),
             .o_negedge                                      (w_href_negedge)
         );
 
         edge_detector_n                                     ED_VSYNC(
-            .i_clk                                          (i_clk),
+            .i_clk                                          (w_PCLK),
             .i_reset                                        (~i_n_reset),
-            .i_cp                                           (i_VS),
+            .i_cp                                           (w_VS),
             .o_posedge                                      (w_vsync_posedge),
             .o_negedge                                      (w_vsync_negedge)
         );
 
-        always @(negedge i_clk) begin
+        always @(posedge i_clk) begin
             if (!i_n_reset) begin
                 present_state <= IDLE;
             end
@@ -99,163 +122,217 @@ module Receiver #(
             end
         end
 
-        always @(posedge i_clk) begin
+        always @(posedge w_PCLK or negedge i_n_reset) begin
             if (!i_n_reset) begin
                 next_state <= IDLE;
                 r_pixel_data <= 0;
-                r_en_xclk <= 0;
-            end
-            else begin
-                case (present_state)
-                
-                    IDLE    : begin
-                        if (i_start_capture) begin
-                            next_state <= WAIT_VSYNC_FALL;
-                            r_en_xclk <= 1;
-                        end
-                        else begin
-                            next_state <= IDLE;
-                        end
-                    end
-
-                    WAIT_VSYNC_FALL : begin
-                        if (w_vsync_negedge) begin
-                            next_state <= WAIT_HREF_RISE;
-                        end
-                        else begin
-                            next_state <= WAIT_VSYNC_FALL;
-                        end
-                    end
-
-                    WAIT_HREF_RISE : begin
-                        if (w_vsync_posedge) begin
-                            next_state <= FRAME_DONE;
-                        end
-                        else if (w_href_posedge) begin
-                            next_state <= WAIT_FIRST_BYTE;
-                        end
-                        else begin
-                            next_state <= WAIT_HREF_RISE;
-                        end
-                    end
-
-                    WAIT_FIRST_BYTE : begin : PXL_DATA_RCV
-                        if (w_vsync_posedge) begin
-                            next_state <= FRAME_DONE;
-                        end
-                        else if (w_href_negedge) begin
-                            // Next Line
-                            next_state <= WAIT_HREF_RISE;
-                        end
-                        // else if (r_pclk_posedge_z) begin
-                        else if (w_pclk_negedge) begin
-                            next_state <= WAIT_SECOND_BYTE;
-                            r_pixel_data <= i_DATA;
-                        end
-                        else begin
-                            next_state <= WAIT_FIRST_BYTE;
-                        end
-                    end
-
-                    WAIT_SECOND_BYTE : begin
-                        if (w_vsync_posedge) begin
-                            next_state <= FRAME_DONE;
-                        end
-                        // else if (r_pclk_posedge_z) begin
-                        else if (w_pclk_negedge) begin
-                            // Next Byte, in same line
-                            next_state <= WAIT_FIRST_BYTE;
-                            r_pixel_data <= (r_pixel_data << (DATA_WIDTH) | i_DATA);
-                        end
-                        else begin
-                            next_state <= WAIT_SECOND_BYTE;
-                        end
-                    end
-
-                    FRAME_DONE : begin
-                        if (i_next_frame) begin
-                            next_state      <=      WAIT_VSYNC_FALL;
-                            r_pixel_data    <=      0;
-                            r_en_xclk       <=      1;
-                        end
-                    end
-
-                    default : begin
-                            next_state      <=      'bz;
-                            r_pixel_data    <=      'bz;
-                            r_en_xclk       <=      'bz;
-                    end
-                endcase
-            end
-        end
-
-        always @(posedge i_clk) begin
-            if (!i_n_reset) begin
-                r_h_addr <= 0;
-                r_v_addr <= 0;
                 r_flag <= 0;
                 r_valid <= 0;
+                r_en_xclk <= 1;
+                r_h_addr <= 0;
+                r_v_addr <= 0;
+                r_porch_count <= 0;
             end
             else begin
                 if (w_vsync_posedge) begin
                     r_h_addr <= 0;
                     r_v_addr <= 0;
-                    r_valid <= 0;
+                    r_flag <= 0;
                 end
-                else if (w_href_negedge) begin
-                    r_h_addr <= 0;
-                    r_v_addr <= r_v_addr + 1;
-                    r_valid <= 0;
+                if (w_href_negedge) begin
+                    // if (r_v_addr >= V_WIDTH) begin
+                    //     r_h_addr <= 0;
+                    //     r_v_addr <= 0;
+                    // end
+                    // else begin
+                        r_h_addr <= 0;
+                        r_v_addr <= r_v_addr + 1;
+                    // end
+                    r_porch_count <= 0;
+                    r_flag <= 0;
                 end
-                // else if (o_valid) begin
-                //     r_h_addr <= r_h_addr + 1;
-                // end
-                else if (r_pclk_posedge_z && i_HS) begin
-                    if (r_flag == 0) begin
-                        r_flag <= 1;
-                        r_valid <= 0;
+                if (w_HS) begin
+                    if (r_porch_count >= (16 - 1) && r_porch_count <= (640 + 16 - 1)) begin
+                        if (!r_flag) begin : RCV_FIRST_BYTE
+                            r_flag <= ~r_flag;
+                            r_pixel_data[2*DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
+                            r_valid <= 0;
+                        end
+                        else if (r_flag) begin : RCV_SECOND_BYTE
+                            r_flag <= ~r_flag;
+                            r_pixel_data[DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
+                            r_valid <= 1;
+                            // if (r_h_addr >= H_WIDTH) begin
+                            //     r_h_addr <= 0;
+                            //     // r_v_addr <= r_v_addr + 1;
+                            // end
+                            // else begin
+                                r_h_addr <= r_h_addr + 1;
+                            // end
+                        end
+                        else begin
+                            r_valid <= 0;
+                        end
                     end
-                    else if (r_flag == 1) begin
-                        r_flag <= 0;
-                        r_h_addr <= r_h_addr + 1;
-                        r_valid <= 1;
-                    end
+                    r_porch_count <= r_porch_count + 1;
                 end
-                else begin
-                    r_valid <= 0;
-                end
-                // if (o_valid) begin
-                //     if (r_h_addr >= H_WIDTH - 1) begin
-                //         if (r_v_addr >= V_WIDTH - 1) begin
-                //             r_h_addr <= 0;
-                //             r_v_addr <= 0;
-                //         end
-                //         else begin
-                //             r_h_addr <= 0;
-                //             r_v_addr <= r_v_addr + 1;
-                //         end
-                //     end
-                //     else begin
-                //         r_h_addr <= r_h_addr + 1;
-                //     end
-                // end
             end
         end
 
         always @(posedge i_clk) begin
             if (!i_n_reset) begin
-                r_pclk_posedge_z <= 0;
+                r_PCLK      <= 0;
+                r_VS        <= 0;
+                r_HS        <= 0;
+                r_DATA      <= 0;
+                
+                r_PCLK_z    <= 0;
+                r_VS_z      <= 0;
+                r_HS_z      <= 0;
+                r_DATA_z    <= 0;
+                
+                r_PCLK_zz   <= 0;
+                r_VS_zz     <= 0;
+                r_HS_zz     <= 0;
+                r_DATA_zz   <= 0;
             end
             else begin
-                r_pclk_posedge_z <= w_pclk_posedge;
+                r_PCLK      <= i_PCLK;
+                r_VS        <= i_VS;
+                r_HS        <= i_HS;
+                r_DATA      <= i_DATA;
+                
+                r_PCLK_z    <= r_PCLK;
+                r_VS_z      <= r_VS;
+                r_HS_z      <= r_HS;
+                r_DATA_z    <= r_DATA;
+
+                r_PCLK_zz   <= r_PCLK_z;
+                r_VS_zz     <= r_VS_z;
+                r_HS_zz     <= r_HS_z;
+                r_DATA_zz   <= r_DATA_z;
             end
         end
 
-        assign  o_present_state =       present_state;
-        assign  o_pixel_data    =       r_pixel_data[PXL_WIDTH - 1 : 0];
-        assign  o_h_addr        =       r_h_addr;
-        assign  o_v_addr        =       r_v_addr;
-        assign  o_valid         =       r_valid;
-        assign  o_en_xclk       =       r_en_xclk;
+        // always @(negedge i_clk) begin
+        //     if (!i_n_reset) begin
+        //         next_state <= WAIT_VSYNC_FALL;
+        //         r_pixel_data <= 0;
+        //         r_flag <= 0;
+        //         r_valid <= 0;
+        //         r_en_xclk <= 1;
+        //         r_h_addr <= 0;
+        //         r_v_addr <= 0;
+        //     end
+        //     else begin
+        //         case (present_state)
+                
+        //             // IDLE    : begin
+        //             //     if (i_start_capture) begin
+        //             //         next_state <= WAIT_VSYNC_FALL;
+        //             //         r_en_xclk <= 1;
+        //             //     end
+        //             //     else begin
+        //             //         next_state <= IDLE;
+        //             //     end
+        //             // end
+
+        //             WAIT_VSYNC_FALL : begin
+        //                 if (w_vsync_negedge) begin
+        //                     next_state <= WAIT_FIRST_BYTE;
+        //                 end
+        //                 else begin
+        //                     next_state <= WAIT_VSYNC_FALL;
+        //                 end
+        //             end
+
+        //             WAIT_FIRST_BYTE : begin : PXL_DATA_RCV
+        //                 // If Un-comment under lines, video frame continuously rise
+        //                 if (w_vsync_posedge) begin
+        //                     // next_state <= FRAME_DONE;
+        //                     r_valid <= 0;
+        //                     r_h_addr <= 0;
+        //                     r_v_addr <= 0;
+        //                 end
+        //                 if (w_href_negedge) begin
+        //                     r_h_addr <= 0;
+        //                     r_v_addr <= r_v_addr + 1;
+        //                     r_valid <= 0;
+        //                 end
+        //                 if (i_HS && w_pclk_posedge) begin
+        //                     next_state <= WAIT_SECOND_BYTE;
+        //                     r_pixel_data[2*DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
+        //                     if (!r_flag) begin
+        //                         r_flag <= 1;
+        //                         r_valid <= 0;
+        //                     end
+        //                 end
+        //                 else begin
+        //                     next_state <= WAIT_FIRST_BYTE;
+        //                     r_valid <= 0;
+        //                 end
+        //             end
+
+        //             WAIT_SECOND_BYTE : begin
+        //                 // If Un-comment under lines, video frame continuously rise
+        //                 // if (w_vsync_posedge) begin
+        //                 //     // next_state <= FRAME_DONE;
+        //                     // r_valid <= 0;
+        //                     // r_h_addr <= 0;
+        //                     // r_v_addr <= 0;
+        //                 // end
+        //                 // if (w_href_negedge) begin
+        //                 //     r_h_addr <= 0;
+        //                 //     r_v_addr <= r_v_addr + 1;
+        //                 //     r_valid <= 0;
+        //                 // end
+        //                 if (i_HS && w_pclk_posedge) begin
+        //                     // Next Byte, in same line
+        //                     next_state <= WAIT_FIRST_BYTE;
+        //                     r_pixel_data[DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
+        //                     if (r_flag) begin
+        //                         r_flag <= 0;
+        //                         r_valid <= 1;
+        //                         r_h_addr <= r_h_addr + 1;
+        //                     end
+        //                 end
+        //                 else begin
+        //                     next_state <= WAIT_SECOND_BYTE;
+        //                     r_valid <= 0;
+        //                 end
+        //             end
+
+        //             FRAME_DONE : begin
+        //                 if (w_vsync_negedge) begin
+        //                     next_state      <=      WAIT_FIRST_BYTE;
+        //                     r_pixel_data    <=      0;
+        //                     r_flag          <=      0;
+        //                     r_valid         <=      0;
+        //                     r_en_xclk       <=      1;
+        //                     r_h_addr        <=      0;
+        //                     r_v_addr        <=      0;
+        //                 end
+        //             end
+
+        //             default : begin
+        //                     next_state      <=      'bz;
+        //                     r_pixel_data    <=      'bz;
+        //                     r_en_xclk       <=      'bz;
+        //             end
+        //         endcase
+        //     end
+        // end
+
+        assign  o_present_state     =       present_state;
+        assign  o_pixel_data        =       r_pixel_data[PXL_WIDTH - 1 : 0];
+        assign  o_h_addr            =       r_h_addr;
+        assign  o_v_addr            =       r_v_addr;
+        assign  o_valid             =       r_valid;
+        assign  o_en_xclk           =       r_en_xclk;
+
+        assign  w_PCLK              =       r_PCLK_zz;
+        assign  w_VS                =       r_VS_zz;
+        assign  w_HS                =       r_HS_zz;
+        assign  w_DATA              =       r_DATA_zz;
 
 endmodule

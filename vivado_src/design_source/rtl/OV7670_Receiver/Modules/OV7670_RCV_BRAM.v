@@ -13,6 +13,7 @@ module OV7670_RCV_BRAM#(
         // System IF
         input       wire                                    i_clk,
         input       wire                                    i_n_reset,
+        input       wire                                    i_xclk,
 
         input       wire                                    i_next_frame,
         input       wire                                    i_start_capture,
@@ -51,6 +52,7 @@ module OV7670_RCV_BRAM#(
         )                                                   OV_RCV(
             .i_clk                                          (i_clk),
             .i_n_reset                                      (i_n_reset),
+            .i_xclk                                         (i_xclk),
             .i_next_frame                                   (i_next_frame),
             .i_start_capture                                (i_start_capture),
             .o_present_state                                (o_present_state),

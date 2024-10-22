@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_OV7670_RCV_BRAM_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_OV7670_RCV_BRAM" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="30434055001fs"></ZoomEndTime>
+      <Cursor1Time time="27618035000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="250"></NameColumnWidth>
+      <ValueColumnWidth column_width="240"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="48" />
+   <wave_markers>
+      <marker time="58160000" label="" />
+      <marker time="58320000" label="" />
+      <marker time="58000000" label="" />
+      <marker time="27362065000" label="" />
+      <marker time="27362085100" label="" />
+   </wave_markers>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_clk" type="logic">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+      <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_n_reset" type="logic">
+      <obj_property name="ElementShortName">i_n_reset</obj_property>
+      <obj_property name="ObjectShortName">i_n_reset</obj_property>
+      <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_next_frame" type="logic">
+      <obj_property name="ElementShortName">i_next_frame</obj_property>
+      <obj_property name="ObjectShortName">i_next_frame</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_start_capture" type="logic">
+      <obj_property name="ElementShortName">i_start_capture</obj_property>
+      <obj_property name="ObjectShortName">i_start_capture</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_PCLK" type="logic">
+      <obj_property name="ElementShortName">i_PCLK</obj_property>
+      <obj_property name="ObjectShortName">i_PCLK</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_pclk_posedge" type="logic">
+      <obj_property name="ElementShortName">w_pclk_posedge</obj_property>
+      <obj_property name="ObjectShortName">w_pclk_posedge</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_pclk_negedge" type="logic">
+      <obj_property name="ElementShortName">w_pclk_negedge</obj_property>
+      <obj_property name="ObjectShortName">w_pclk_negedge</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_VS" type="logic">
+      <obj_property name="ElementShortName">i_VS</obj_property>
+      <obj_property name="ObjectShortName">i_VS</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_HS" type="logic">
+      <obj_property name="ElementShortName">i_HS</obj_property>
+      <obj_property name="ObjectShortName">i_HS</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/i_DATA" type="array">
+      <obj_property name="ElementShortName">i_DATA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_DATA[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/present_state" type="array">
+      <obj_property name="ElementShortName">present_state[5:0]</obj_property>
+      <obj_property name="ObjectShortName">present_state[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_flag" type="logic">
+      <obj_property name="ElementShortName">r_flag</obj_property>
+      <obj_property name="ObjectShortName">r_flag</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_en_xclk" type="logic">
+      <obj_property name="ElementShortName">o_en_xclk</obj_property>
+      <obj_property name="ObjectShortName">o_en_xclk</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_pixel_data" type="array">
+      <obj_property name="ElementShortName">o_pixel_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">o_pixel_data[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_h_addr" type="array">
+      <obj_property name="ElementShortName">o_h_addr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">o_h_addr[10:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_v_addr" type="array">
+      <obj_property name="ElementShortName">o_v_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">o_v_addr[9:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/o_valid" type="logic">
+      <obj_property name="ElementShortName">o_valid</obj_property>
+      <obj_property name="ObjectShortName">o_valid</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="group282" type="group">
+      <obj_property name="label">STATE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/present_state" type="array">
+         <obj_property name="ElementShortName">present_state[5:0]</obj_property>
+         <obj_property name="ObjectShortName">present_state[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/next_state" type="array">
+         <obj_property name="ElementShortName">next_state[5:0]</obj_property>
+         <obj_property name="ObjectShortName">next_state[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/IDLE" type="array">
+         <obj_property name="ElementShortName">IDLE[5:0]</obj_property>
+         <obj_property name="ObjectShortName">IDLE[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/WAIT_VSYNC_FALL" type="array">
+         <obj_property name="ElementShortName">WAIT_VSYNC_FALL[5:0]</obj_property>
+         <obj_property name="ObjectShortName">WAIT_VSYNC_FALL[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/WAIT_HREF_RISE" type="array">
+         <obj_property name="ElementShortName">WAIT_HREF_RISE[5:0]</obj_property>
+         <obj_property name="ObjectShortName">WAIT_HREF_RISE[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/WAIT_FIRST_BYTE" type="array">
+         <obj_property name="ElementShortName">WAIT_FIRST_BYTE[5:0]</obj_property>
+         <obj_property name="ObjectShortName">WAIT_FIRST_BYTE[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/WAIT_SECOND_BYTE" type="array">
+         <obj_property name="ElementShortName">WAIT_SECOND_BYTE[5:0]</obj_property>
+         <obj_property name="ObjectShortName">WAIT_SECOND_BYTE[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/FRAME_DONE" type="array">
+         <obj_property name="ElementShortName">FRAME_DONE[5:0]</obj_property>
+         <obj_property name="ObjectShortName">FRAME_DONE[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group281" type="group">
+      <obj_property name="label">reg</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_en_xclk" type="logic">
+         <obj_property name="ElementShortName">r_en_xclk</obj_property>
+         <obj_property name="ObjectShortName">r_en_xclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_pixel_data" type="array">
+         <obj_property name="ElementShortName">r_pixel_data[15:0]</obj_property>
+         <obj_property name="ObjectShortName">r_pixel_data[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_valid" type="logic">
+         <obj_property name="ElementShortName">r_valid</obj_property>
+         <obj_property name="ObjectShortName">r_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_pclk_posedge_z" type="logic">
+         <obj_property name="ElementShortName">r_pclk_posedge_z</obj_property>
+         <obj_property name="ObjectShortName">r_pclk_posedge_z</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_href_posedge" type="logic">
+         <obj_property name="ElementShortName">w_href_posedge</obj_property>
+         <obj_property name="ObjectShortName">w_href_posedge</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_href_negedge" type="logic">
+         <obj_property name="ElementShortName">w_href_negedge</obj_property>
+         <obj_property name="ObjectShortName">w_href_negedge</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_vsync_posedge" type="logic">
+         <obj_property name="ElementShortName">w_vsync_posedge</obj_property>
+         <obj_property name="ObjectShortName">w_vsync_posedge</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/w_vsync_negedge" type="logic">
+         <obj_property name="ElementShortName">w_vsync_negedge</obj_property>
+         <obj_property name="ObjectShortName">w_vsync_negedge</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_h_addr" type="array">
+         <obj_property name="ElementShortName">r_h_addr[10:0]</obj_property>
+         <obj_property name="ObjectShortName">r_h_addr[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/OV_RCV/FSM/r_v_addr" type="array">
+         <obj_property name="ElementShortName">r_v_addr[9:0]</obj_property>
+         <obj_property name="ObjectShortName">r_v_addr[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider295">
+      <obj_property name="label">BRAM_IF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/BRAM_IF/i_h_addr" type="array">
+      <obj_property name="ElementShortName">i_h_addr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">i_h_addr[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/BRAM_IF/i_v_addr" type="array">
+      <obj_property name="ElementShortName">i_v_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">i_v_addr[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/BRAM_IF/i_valid" type="logic">
+      <obj_property name="ElementShortName">i_valid</obj_property>
+      <obj_property name="ObjectShortName">i_valid</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/BRAM_IF/i_pixel_data" type="array">
+      <obj_property name="ElementShortName">i_pixel_data[11:0]</obj_property>
+      <obj_property name="ObjectShortName">i_pixel_data[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/BRAM_IF/o_valid" type="logic">
+      <obj_property name="ElementShortName">o_valid</obj_property>
+      <obj_property name="ObjectShortName">o_valid</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/BRAM_IF/o_h_addr" type="array">
+      <obj_property name="ElementShortName">o_h_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">o_h_addr[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/BRAM_IF/o_v_addr" type="array">
+      <obj_property name="ElementShortName">o_v_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">o_v_addr[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/BRAM_IF/o_pxl_r" type="array">
+      <obj_property name="ElementShortName">o_pxl_r[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_pxl_r[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/BRAM_IF/o_pxl_g" type="array">
+      <obj_property name="ElementShortName">o_pxl_g[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_pxl_g[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_OV7670_RCV_BRAM/BRAM_IF/o_pxl_b" type="array">
+      <obj_property name="ElementShortName">o_pxl_b[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_pxl_b[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider307">
+      <obj_property name="label">COORD_CVT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_PXL_COORD_CVT/addr_x" type="array">
+      <obj_property name="ElementShortName">addr_x[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_x[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_PXL_COORD_CVT/addr_y" type="array">
+      <obj_property name="ElementShortName">addr_y[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_y[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_PXL_COORD_CVT/addr_x_scaler" type="array">
+      <obj_property name="ElementShortName">addr_x_scaler[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_x_scaler[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_PXL_COORD_CVT/addr_y_scaler" type="array">
+      <obj_property name="ElementShortName">addr_y_scaler[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_y_scaler[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider307">
+      <obj_property name="label">BRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/reset_p" type="logic">
+      <obj_property name="ElementShortName">reset_p</obj_property>
+      <obj_property name="ObjectShortName">reset_p</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/write_enable" type="logic">
+      <obj_property name="ElementShortName">write_enable</obj_property>
+      <obj_property name="ObjectShortName">write_enable</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/porta_addr_1d" type="array">
+      <obj_property name="ElementShortName">porta_addr_1d[16:0]</obj_property>
+      <obj_property name="ObjectShortName">porta_addr_1d[16:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/porta_addr_x" type="array">
+      <obj_property name="ElementShortName">porta_addr_x[9:0]</obj_property>
+      <obj_property name="ObjectShortName">porta_addr_x[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/porta_addr_y" type="array">
+      <obj_property name="ElementShortName">porta_addr_y[9:0]</obj_property>
+      <obj_property name="ObjectShortName">porta_addr_y[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="vbus355" type="vbus">
+      <obj_property name="label">PXL_DATA_IN</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/porta_vgaRed" type="array">
+         <obj_property name="ElementShortName">porta_vgaRed[3:0]</obj_property>
+         <obj_property name="ObjectShortName">porta_vgaRed[3:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/porta_vgaGreen" type="array">
+         <obj_property name="ElementShortName">porta_vgaGreen[3:0]</obj_property>
+         <obj_property name="ObjectShortName">porta_vgaGreen[3:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/porta_vgaBlue" type="array">
+         <obj_property name="ElementShortName">porta_vgaBlue[3:0]</obj_property>
+         <obj_property name="ObjectShortName">porta_vgaBlue[3:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/portb_addr_x" type="array">
+      <obj_property name="ElementShortName">portb_addr_x[9:0]</obj_property>
+      <obj_property name="ObjectShortName">portb_addr_x[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/portb_addr_y" type="array">
+      <obj_property name="ElementShortName">portb_addr_y[9:0]</obj_property>
+      <obj_property name="ObjectShortName">portb_addr_y[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/portb_addr_x_oneahead" type="array">
+      <obj_property name="ElementShortName">portb_addr_x_oneahead[9:0]</obj_property>
+      <obj_property name="ObjectShortName">portb_addr_x_oneahead[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/portb_addr_1d" type="array">
+      <obj_property name="ElementShortName">portb_addr_1d[16:0]</obj_property>
+      <obj_property name="ObjectShortName">portb_addr_1d[16:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="vbus324" type="vbus">
+      <obj_property name="label">PXL_DATA_OUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/portb_vgaRed" type="array">
+         <obj_property name="ElementShortName">portb_vgaRed[3:0]</obj_property>
+         <obj_property name="ObjectShortName">portb_vgaRed[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/portb_vgaGreen" type="array">
+         <obj_property name="ElementShortName">portb_vgaGreen[3:0]</obj_property>
+         <obj_property name="ObjectShortName">portb_vgaGreen[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_OV7670_RCV_BRAM/i_BRAM/portb_vgaBlue" type="array">
+         <obj_property name="ElementShortName">portb_vgaBlue[3:0]</obj_property>
+         <obj_property name="ObjectShortName">portb_vgaBlue[3:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

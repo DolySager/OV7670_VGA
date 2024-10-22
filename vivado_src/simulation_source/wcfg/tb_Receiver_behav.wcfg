@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="5000fs"></ZoomStartTime>
-      <ZoomEndTime time="64305001fs"></ZoomEndTime>
-      <Cursor1Time time="26545000fs"></Cursor1Time>
+      <ZoomStartTime time="615250fs"></ZoomStartTime>
+      <ZoomEndTime time="1273751fs"></ZoomEndTime>
+      <Cursor1Time time="865000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="250"></NameColumnWidth>
-      <ValueColumnWidth column_width="245"></ValueColumnWidth>
+      <ValueColumnWidth column_width="240"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="7" />
    <wvobject type="divider" fp_name="divider107">
@@ -74,6 +74,12 @@
          <obj_property name="ElementShortName">i_PCLK</obj_property>
          <obj_property name="ObjectShortName">i_PCLK</obj_property>
          <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/w_pclk_posedge" type="logic">
+         <obj_property name="ElementShortName">w_pclk_posedge</obj_property>
+         <obj_property name="ObjectShortName">w_pclk_posedge</obj_property>
+         <obj_property name="CustomSignalColor">#808000</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_Receiver/DUT/FSM/i_VS" type="logic">
@@ -166,6 +172,12 @@
             <obj_property name="CustomSignalColor">#F0E68C</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
          </wvobject>
+      </wvobject>
+      <wvobject fp_name="/tb_Receiver/DUT/FSM/r_flag" type="logic">
+         <obj_property name="ElementShortName">r_flag</obj_property>
+         <obj_property name="ObjectShortName">r_flag</obj_property>
+         <obj_property name="CustomSignalColor">#FF0080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_Receiver/DUT/FSM/o_en_xclk" type="logic">
          <obj_property name="ElementShortName">o_en_xclk</obj_property>
@@ -293,18 +305,6 @@
          <wvobject fp_name="/tb_Receiver/DUT/FSM/r_valid" type="logic">
             <obj_property name="ElementShortName">r_valid</obj_property>
             <obj_property name="ObjectShortName">r_valid</obj_property>
-            <obj_property name="CustomSignalColor">#808000</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-         </wvobject>
-         <wvobject fp_name="/tb_Receiver/DUT/FSM/w_pclk_posedge" type="logic">
-            <obj_property name="ElementShortName">w_pclk_posedge</obj_property>
-            <obj_property name="ObjectShortName">w_pclk_posedge</obj_property>
-            <obj_property name="CustomSignalColor">#808000</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-         </wvobject>
-         <wvobject fp_name="/tb_Receiver/DUT/FSM/w_pclk_negdege" type="logic">
-            <obj_property name="ElementShortName">w_pclk_negdege</obj_property>
-            <obj_property name="ObjectShortName">w_pclk_negdege</obj_property>
             <obj_property name="CustomSignalColor">#808000</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
          </wvobject>
