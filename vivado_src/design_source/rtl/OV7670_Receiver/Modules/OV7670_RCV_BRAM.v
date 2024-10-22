@@ -4,9 +4,9 @@ module OV7670_RCV_BRAM#(
         parameter                                           DATA_WIDTH      =       8,
         parameter                                           H_WIDTH         =       640,
         parameter                                           V_WIDTH         =       480,
-        parameter                                           R_WIDTH         =       4,
-        parameter                                           G_WIDTH         =       4,
-        parameter                                           B_WIDTH         =       4,
+        parameter                                           R_WIDTH         =       5,
+        parameter                                           G_WIDTH         =       6,
+        parameter                                           B_WIDTH         =       5,
         parameter                                           PXL_WIDTH       =       R_WIDTH + G_WIDTH + B_WIDTH,
         parameter                                           XCLK_FREQ       =       24_000_000
     )(
@@ -42,7 +42,7 @@ module OV7670_RCV_BRAM#(
                     wire        [10 : 0]                    w_h_addr;
                     wire        [9 : 0]                     w_v_addr;
                     wire                                    w_valid;
-                    wire        [11 : 0]                    w_pixel_data;
+                    wire        [PXL_WIDTH - 1 : 0]         w_pixel_data;
 
         OV7670_Receiver                                     #(
             .DATA_WIDTH                                     (DATA_WIDTH),

@@ -89,7 +89,6 @@ module Receiver #(
 
                     reg                                     r_flag;
 
-                    reg         [15 : 0]                    r_pclk_count;
                     reg         [$clog2(H_WIDTH) : 0]       r_h_addr;
                     reg         [$clog2(V_WIDTH) : 0]       r_v_addr;
 
@@ -143,7 +142,6 @@ module Receiver #(
                 r_en_xclk <= 1;
                 r_h_addr <= 0;
                 r_v_addr <= 0;
-                r_pclk_count <= 0;
             end
             else begin
                 if (w_vsync_posedge) begin
@@ -152,36 +150,24 @@ module Receiver #(
                     r_flag <= 0;
                 end
                 if (w_href_negedge) begin
-                    // if (r_v_addr >= V_WIDTH) begin
-                    //     r_h_addr <= 0;
-                    //     r_v_addr <= 0;
-                    // end
-                    // else begin
-                        r_h_addr <= 0;
-                        r_v_addr <= r_v_addr + 1;
-                    // end
-                    r_pclk_count <= 0;
+                    r_h_addr <= 0;
+                    r_v_addr <= r_v_addr + 1;
                     r_flag <= 0;
                 end
                 if (w_HS) begin
                     if (!r_flag) begin : RCV_FIRST_BYTE
                         r_flag <= ~r_flag;
                         r_pixel_data[2*DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
-                        // r_pixel_data[15 : 8] <= i_DATA;
+                        // r_valid <= 1;
+                        // r_h_addr <= r_h_addr + 1;
                         r_valid <= 0;
                     end
                     else if (r_flag) begin : RCV_SECOND_BYTE
                         r_flag <= ~r_flag;
                         r_pixel_data[DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
-                        // r_pixel_data[7 : 0] <= i_DATA;
+                        // r_valid <= 0;
                         r_valid <= 1;
-                        // if (r_h_addr >= H_WIDTH) begin
-                        //     r_h_addr <= 0;
-                        //     // r_v_addr <= r_v_addr + 1;
-                        // end
-                        // else begin
-                            r_h_addr <= r_h_addr + 1;
-                        // end
+                        r_h_addr <= r_h_addr + 1;
                     end
                     else begin
                         r_valid <= 0;
