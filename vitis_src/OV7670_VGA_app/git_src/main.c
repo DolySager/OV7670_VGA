@@ -11,17 +11,15 @@ u8 myip_SCCB_transceiver_twoPhaseRead (UINTPTR BaseAddress, u8 main_addr);
 int main()
 {
     init_platform();
-
+    usleep(1000000);
     u8 value;
+
+	myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x12, 0x04);
+	myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x40, 0xC0);
+	myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x8C, 0x02);
 
 	while(1)
 	{
-		myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x3E, 0b00000000);
-		usleep(1000000);
-		myip_SCCB_transceiver_threePhaseWrite(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 0x42, 0x3E, 0b00000001);
-		//value = myip_SCCB_transceiver_twoPhaseRead(XPAR_MYIP_SCCB_TRANSCEIVER_0_S00_AXI_BASEADDR, 43);
-		//xil_printf("value: %d\n\r", value);
-		usleep(1000000);
 	}
 
     cleanup_platform();
@@ -32,7 +30,6 @@ int main()
 void myip_SCCB_transceiver_threePhaseWrite (UINTPTR BaseAddress, u8 main_addr, u8 sub_addr, u8 data_in)
 {
     volatile u32 *transceiver_reg = (volatile u32*) BaseAddress;
-    transceiver_reg[1] = 0x1;
     transceiver_reg[1] = main_addr | (sub_addr << 8) | (data_in << 16);
     transceiver_reg[0] = 0b1;
     while(transceiver_reg[0]);  // wait till operation is done

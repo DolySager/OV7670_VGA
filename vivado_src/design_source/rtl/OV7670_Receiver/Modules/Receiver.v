@@ -85,7 +85,7 @@ module Receiver #(
 
                     reg                                     r_flag;
 
-                    reg         [9 : 0]                     r_porch_count;
+                    reg         [15 : 0]                    r_pclk_count;
                     reg         [$clog2(H_WIDTH) : 0]       r_h_addr;
                     reg         [$clog2(V_WIDTH) : 0]       r_v_addr;
 
@@ -131,7 +131,7 @@ module Receiver #(
                 r_en_xclk <= 1;
                 r_h_addr <= 0;
                 r_v_addr <= 0;
-                r_porch_count <= 0;
+                r_pclk_count <= 0;
             end
             else begin
                 if (w_vsync_posedge) begin
@@ -148,11 +148,11 @@ module Receiver #(
                         r_h_addr <= 0;
                         r_v_addr <= r_v_addr + 1;
                     // end
-                    r_porch_count <= 0;
+                    r_pclk_count <= 0;
                     r_flag <= 0;
                 end
                 if (w_HS) begin
-                    if (r_porch_count >= (16 - 1) && r_porch_count <= (640 + 16 - 1)) begin
+                    if (r_pclk_count >= (16 - 1) && r_pclk_count <= ((640)*2 + 16 - 1)) begin
                         if (!r_flag) begin : RCV_FIRST_BYTE
                             r_flag <= ~r_flag;
                             r_pixel_data[2*DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
@@ -174,7 +174,7 @@ module Receiver #(
                             r_valid <= 0;
                         end
                     end
-                    r_porch_count <= r_porch_count + 1;
+                    r_pclk_count <= r_pclk_count + 1;
                 end
             end
         end
@@ -213,115 +213,6 @@ module Receiver #(
                 r_DATA_zz   <= r_DATA_z;
             end
         end
-
-        // always @(negedge i_clk) begin
-        //     if (!i_n_reset) begin
-        //         next_state <= WAIT_VSYNC_FALL;
-        //         r_pixel_data <= 0;
-        //         r_flag <= 0;
-        //         r_valid <= 0;
-        //         r_en_xclk <= 1;
-        //         r_h_addr <= 0;
-        //         r_v_addr <= 0;
-        //     end
-        //     else begin
-        //         case (present_state)
-                
-        //             // IDLE    : begin
-        //             //     if (i_start_capture) begin
-        //             //         next_state <= WAIT_VSYNC_FALL;
-        //             //         r_en_xclk <= 1;
-        //             //     end
-        //             //     else begin
-        //             //         next_state <= IDLE;
-        //             //     end
-        //             // end
-
-        //             WAIT_VSYNC_FALL : begin
-        //                 if (w_vsync_negedge) begin
-        //                     next_state <= WAIT_FIRST_BYTE;
-        //                 end
-        //                 else begin
-        //                     next_state <= WAIT_VSYNC_FALL;
-        //                 end
-        //             end
-
-        //             WAIT_FIRST_BYTE : begin : PXL_DATA_RCV
-        //                 // If Un-comment under lines, video frame continuously rise
-        //                 if (w_vsync_posedge) begin
-        //                     // next_state <= FRAME_DONE;
-        //                     r_valid <= 0;
-        //                     r_h_addr <= 0;
-        //                     r_v_addr <= 0;
-        //                 end
-        //                 if (w_href_negedge) begin
-        //                     r_h_addr <= 0;
-        //                     r_v_addr <= r_v_addr + 1;
-        //                     r_valid <= 0;
-        //                 end
-        //                 if (i_HS && w_pclk_posedge) begin
-        //                     next_state <= WAIT_SECOND_BYTE;
-        //                     r_pixel_data[2*DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
-        //                     if (!r_flag) begin
-        //                         r_flag <= 1;
-        //                         r_valid <= 0;
-        //                     end
-        //                 end
-        //                 else begin
-        //                     next_state <= WAIT_FIRST_BYTE;
-        //                     r_valid <= 0;
-        //                 end
-        //             end
-
-        //             WAIT_SECOND_BYTE : begin
-        //                 // If Un-comment under lines, video frame continuously rise
-        //                 // if (w_vsync_posedge) begin
-        //                 //     // next_state <= FRAME_DONE;
-        //                     // r_valid <= 0;
-        //                     // r_h_addr <= 0;
-        //                     // r_v_addr <= 0;
-        //                 // end
-        //                 // if (w_href_negedge) begin
-        //                 //     r_h_addr <= 0;
-        //                 //     r_v_addr <= r_v_addr + 1;
-        //                 //     r_valid <= 0;
-        //                 // end
-        //                 if (i_HS && w_pclk_posedge) begin
-        //                     // Next Byte, in same line
-        //                     next_state <= WAIT_FIRST_BYTE;
-        //                     r_pixel_data[DATA_WIDTH - 1 -: DATA_WIDTH] <= i_DATA;
-        //                     if (r_flag) begin
-        //                         r_flag <= 0;
-        //                         r_valid <= 1;
-        //                         r_h_addr <= r_h_addr + 1;
-        //                     end
-        //                 end
-        //                 else begin
-        //                     next_state <= WAIT_SECOND_BYTE;
-        //                     r_valid <= 0;
-        //                 end
-        //             end
-
-        //             FRAME_DONE : begin
-        //                 if (w_vsync_negedge) begin
-        //                     next_state      <=      WAIT_FIRST_BYTE;
-        //                     r_pixel_data    <=      0;
-        //                     r_flag          <=      0;
-        //                     r_valid         <=      0;
-        //                     r_en_xclk       <=      1;
-        //                     r_h_addr        <=      0;
-        //                     r_v_addr        <=      0;
-        //                 end
-        //             end
-
-        //             default : begin
-        //                     next_state      <=      'bz;
-        //                     r_pixel_data    <=      'bz;
-        //                     r_en_xclk       <=      'bz;
-        //             end
-        //         endcase
-        //     end
-        // end
 
         assign  o_present_state     =       present_state;
         assign  o_pixel_data        =       r_pixel_data[PXL_WIDTH - 1 : 0];

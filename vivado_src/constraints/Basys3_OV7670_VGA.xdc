@@ -99,7 +99,7 @@ set_property -dict { PACKAGE_PIN C15   IOSTANDARD LVCMOS33 } [get_ports {i_DATA[
 set_property -dict { PACKAGE_PIN C16   IOSTANDARD LVCMOS33 } [get_ports {i_DATA[0]}];#Sch name = JB10
 
 ##Pmod Header JC
-set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 PULLUP true} [get_ports {o_SDA}];#Sch name = JC1
+set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 PULLUP true} [get_ports {io_SDA}];#Sch name = JC1
 set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 PULLUP true} [get_ports {o_SCL}];#Sch name = JC2
 set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports {i_HS}];#Sch name = JC3
 set_property -dict { PACKAGE_PIN P18   IOSTANDARD LVCMOS33 } [get_ports {i_VS}];#Sch name = JC4

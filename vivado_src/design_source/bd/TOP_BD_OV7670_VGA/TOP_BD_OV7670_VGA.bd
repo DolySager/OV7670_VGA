@@ -5,7 +5,8 @@
       "device": "xc7a35tcpg236-1",
       "name": "TOP_BD_OV7670_VGA",
       "synth_flow_mode": "None",
-      "tool_version": "2019.2"
+      "tool_version": "2019.2",
+      "validated": "true"
     },
     "design_tree": {
       "clk_wiz_0": "",
@@ -15,7 +16,6 @@
       "pixel_clock_generator_0": "",
       "pixel_coord_converter_0": "",
       "BRAM_320x240_control_0": "",
-      "OV7670_RCV_BRAM_0": "",
       "myip_SCCB_Transceiver_0": "",
       "microblaze_0": "",
       "microblaze_0_local_memory": {
@@ -35,7 +35,8 @@
       "microblaze_0_axi_intc": "",
       "microblaze_0_xlconcat": "",
       "mdm_1": "",
-      "axi_uartlite_0": ""
+      "axi_uartlite_0": "",
+      "OV7670_RCV_BRAM_0": ""
     },
     "interface_ports": {
       "usb_uart": {
@@ -61,6 +62,10 @@
           "FREQ_HZ": {
             "value": "100000000"
           },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
           "PHASE": {
             "value": "0.000"
           }
@@ -70,6 +75,10 @@
         "type": "rst",
         "direction": "I",
         "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
           "POLARITY": {
             "value": "ACTIVE_HIGH"
           }
@@ -359,135 +368,54 @@
           "write_enable": {
             "direction": "I"
           },
-          "in_vgaRed": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "in_vgaGreen": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "in_vgaBlue": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "Hsync": {
-            "direction": "O"
-          },
-          "Vsync": {
-            "direction": "O"
-          },
-          "out_display_on": {
-            "direction": "O"
-          },
-          "out_vgaRed": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "out_vgaGreen": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "out_vgaBlue": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "count_h": {
-            "direction": "O",
-            "left": "9",
-            "right": "0"
-          },
-          "count_v": {
-            "direction": "O",
-            "left": "9",
-            "right": "0"
-          }
-        }
-      },
-      "OV7670_RCV_BRAM_0": {
-        "vlnv": "xilinx.com:module_ref:OV7670_RCV_BRAM:1.0",
-        "xci_name": "TOP_BD_OV7670_VGA_OV7670_RCV_BRAM_0_3",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "pixel_clock_generator",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "i_n_reset",
-                "value_src": "constant"
-              }
-            }
-          },
-          "i_n_reset": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "i_xclk": {
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              },
-              "FREQ_HZ": {
-                "value": "25000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "i_next_frame": {
-            "direction": "I"
-          },
-          "pixel_clock_pulse": {
-            "direction": "O"
-          }
-        }
-      },
-      "pixel_coord_converter_0": {
-        "vlnv": "xilinx.com:module_ref:pixel_coord_converter:1.0",
-        "xci_name": "TOP_BD_OV7670_VGA_pixel_coord_converter_0_3",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "pixel_coord_converter",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "addr_x": {
+          "porta_addr_x": {
             "direction": "I",
             "left": "9",
             "right": "0"
           },
-          "addr_y": {
+          "porta_addr_y": {
             "direction": "I",
             "left": "9",
             "right": "0"
           },
-          "o_XCLK": {
-            "direction": "O"
+          "porta_vgaRed": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
           },
-          "o_h_addr": {
-            "direction": "O",
+          "porta_vgaGreen": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "porta_vgaBlue": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "portb_addr_x": {
+            "direction": "I",
             "left": "9",
             "right": "0"
           },
-          "addr_y_scaler": {
-            "direction": "O",
+          "portb_addr_y": {
+            "direction": "I",
             "left": "9",
+            "right": "0"
+          },
+          "portb_vgaRed": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "portb_vgaGreen": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "portb_vgaBlue": {
+            "direction": "O",
+            "left": "3",
             "right": "0"
           }
         }
@@ -514,6 +442,9 @@
           },
           "G_TEMPLATE_LIST": {
             "value": "8"
+          },
+          "G_USE_EXCEPTIONS": {
+            "value": "1"
           }
         },
         "hdl_attributes": {
@@ -605,16 +536,10 @@
               "ilmb_v10/LMB_M"
             ]
           },
-          "microblaze_0_dlmb_bus": {
+          "microblaze_0_ilmb_cntlr": {
             "interface_ports": [
-              "dlmb_v10/LMB_Sl_0",
-              "dlmb_bram_if_cntlr/SLMB"
-            ]
-          },
-          "microblaze_0_ilmb_bus": {
-            "interface_ports": [
-              "ilmb_v10/LMB_Sl_0",
-              "ilmb_bram_if_cntlr/SLMB"
+              "ilmb_bram_if_cntlr/BRAM_PORT",
+              "lmb_bram/BRAM_PORTB"
             ]
           },
           "microblaze_0_dlmb_cntlr": {
@@ -623,10 +548,16 @@
               "lmb_bram/BRAM_PORTA"
             ]
           },
-          "microblaze_0_ilmb_cntlr": {
+          "microblaze_0_ilmb_bus": {
             "interface_ports": [
-              "ilmb_bram_if_cntlr/BRAM_PORT",
-              "lmb_bram/BRAM_PORTB"
+              "ilmb_v10/LMB_Sl_0",
+              "ilmb_bram_if_cntlr/SLMB"
+            ]
+          },
+          "microblaze_0_dlmb_bus": {
+            "interface_ports": [
+              "dlmb_v10/LMB_Sl_0",
+              "dlmb_bram_if_cntlr/SLMB"
             ]
           },
           "microblaze_0_dlmb": {
@@ -996,12 +927,6 @@
           }
         },
         "interface_nets": {
-          "xbar_to_m02_couplers": {
-            "interface_ports": [
-              "xbar/M02_AXI",
-              "m02_couplers/S_AXI"
-            ]
-          },
           "microblaze_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
@@ -1020,16 +945,22 @@
               "m00_couplers/M_AXI"
             ]
           },
+          "xbar_to_m00_couplers": {
+            "interface_ports": [
+              "xbar/M00_AXI",
+              "m00_couplers/S_AXI"
+            ]
+          },
           "m01_couplers_to_microblaze_0_axi_periph": {
             "interface_ports": [
               "M01_AXI",
               "m01_couplers/M_AXI"
             ]
           },
-          "xbar_to_m00_couplers": {
+          "m02_couplers_to_microblaze_0_axi_periph": {
             "interface_ports": [
-              "xbar/M00_AXI",
-              "m00_couplers/S_AXI"
+              "M02_AXI",
+              "m02_couplers/M_AXI"
             ]
           },
           "xbar_to_m01_couplers": {
@@ -1038,10 +969,10 @@
               "m01_couplers/S_AXI"
             ]
           },
-          "m02_couplers_to_microblaze_0_axi_periph": {
+          "xbar_to_m02_couplers": {
             "interface_ports": [
-              "M02_AXI",
-              "m02_couplers/M_AXI"
+              "xbar/M02_AXI",
+              "m02_couplers/S_AXI"
             ]
           }
         },
@@ -1104,9 +1035,113 @@
             "value": "true"
           }
         }
+      },
+      "OV7670_RCV_BRAM_0": {
+        "vlnv": "xilinx.com:module_ref:OV7670_RCV_BRAM:1.0",
+        "xci_name": "TOP_BD_OV7670_VGA_OV7670_RCV_BRAM_0_3",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "OV7670_RCV_BRAM",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "i_n_reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "i_n_reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "i_xclk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "i_next_frame": {
+            "direction": "I"
+          },
+          "i_start_capture": {
+            "direction": "I"
+          },
+          "o_present_state": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "i_PCLK": {
+            "direction": "I"
+          },
+          "i_VS": {
+            "direction": "I"
+          },
+          "i_HS": {
+            "direction": "I"
+          },
+          "i_DATA": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "o_XCLK": {
+            "direction": "O"
+          },
+          "o_h_addr": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "o_v_addr": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "o_valid": {
+            "direction": "O"
+          },
+          "o_pxl_r": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "o_pxl_g": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "o_pxl_b": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
+      "microblaze_0_interrupt": {
+        "interface_ports": [
+          "microblaze_0_axi_intc/interrupt",
+          "microblaze_0/INTERRUPT"
+        ]
+      },
       "microblaze_0_axi_periph_M01_AXI": {
         "interface_ports": [
           "microblaze_0_axi_periph/M01_AXI",
@@ -1119,34 +1154,16 @@
           "axi_uartlite_0/S_AXI"
         ]
       },
-      "axi_uartlite_0_UART": {
-        "interface_ports": [
-          "usb_uart",
-          "axi_uartlite_0/UART"
-        ]
-      },
-      "microblaze_0_dlmb_1": {
-        "interface_ports": [
-          "microblaze_0/DLMB",
-          "microblaze_0_local_memory/DLMB"
-        ]
-      },
       "microblaze_0_ilmb_1": {
         "interface_ports": [
           "microblaze_0/ILMB",
           "microblaze_0_local_memory/ILMB"
         ]
       },
-      "microblaze_0_debug": {
+      "axi_uartlite_0_UART": {
         "interface_ports": [
-          "mdm_1/MBDEBUG_0",
-          "microblaze_0/DEBUG"
-        ]
-      },
-      "microblaze_0_interrupt": {
-        "interface_ports": [
-          "microblaze_0_axi_intc/interrupt",
-          "microblaze_0/INTERRUPT"
+          "usb_uart",
+          "axi_uartlite_0/UART"
         ]
       },
       "microblaze_0_intc_axi": {
@@ -1159,6 +1176,18 @@
         "interface_ports": [
           "microblaze_0_axi_periph/S00_AXI",
           "microblaze_0/M_AXI_DP"
+        ]
+      },
+      "microblaze_0_dlmb_1": {
+        "interface_ports": [
+          "microblaze_0/DLMB",
+          "microblaze_0_local_memory/DLMB"
+        ]
+      },
+      "microblaze_0_debug": {
+        "interface_ports": [
+          "mdm_1/MBDEBUG_0",
+          "microblaze_0/DEBUG"
         ]
       }
     },
@@ -1195,7 +1224,6 @@
           "VGA_controller_0/clk",
           "pixel_clock_generator_0/clk",
           "BRAM_320x240_control_0/clk",
-          "OV7670_RCV_BRAM_0/i_clk",
           "microblaze_0/Clk",
           "microblaze_0_axi_periph/ACLK",
           "microblaze_0_axi_periph/S00_ACLK",
@@ -1206,7 +1234,8 @@
           "myip_SCCB_Transceiver_0/s00_axi_aclk",
           "microblaze_0_axi_periph/M01_ACLK",
           "axi_uartlite_0/s_axi_aclk",
-          "microblaze_0_axi_periph/M02_ACLK"
+          "microblaze_0_axi_periph/M02_ACLK",
+          "OV7670_RCV_BRAM_0/i_clk"
         ]
       },
       "clk_wiz_0_locked": {
@@ -1354,7 +1383,6 @@
       "rst_clk_wiz_0_100M_peripheral_aresetn": {
         "ports": [
           "rst_clk_wiz_0_100M/peripheral_aresetn",
-          "OV7670_RCV_BRAM_0/i_n_reset",
           "microblaze_0_axi_periph/ARESETN",
           "microblaze_0_axi_periph/S00_ARESETN",
           "microblaze_0_axi_periph/M00_ARESETN",
@@ -1362,7 +1390,8 @@
           "myip_SCCB_Transceiver_0/s00_axi_aresetn",
           "microblaze_0_axi_periph/M01_ARESETN",
           "axi_uartlite_0/s_axi_aresetn",
-          "microblaze_0_axi_periph/M02_ARESETN"
+          "microblaze_0_axi_periph/M02_ARESETN",
+          "OV7670_RCV_BRAM_0/i_n_reset"
         ]
       },
       "OV7670_RCV_BRAM_0_o_XCLK": {
