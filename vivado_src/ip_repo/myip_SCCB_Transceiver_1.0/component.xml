@@ -199,7 +199,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.S00_AXI_RST.POLARITY" spirit:choiceRef="choice_list_74b5137e">ACTIVE_LOW</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S00_AXI_RST.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -266,7 +266,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>32a89c39</spirit:value>
+            <spirit:value>5c4903e2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -282,7 +282,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>32a89c39</spirit:value>
+            <spirit:value>5c4903e2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -328,6 +328,21 @@
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_testbench</spirit:name>
+        <spirit:displayName>Test Bench</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation.testbench</spirit:envIdentifier>
+        <spirit:modelName>tb_axi_sccb</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_testbench_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>25f63784</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
     </spirit:views>
     <spirit:ports>
       <spirit:port>
@@ -358,6 +373,19 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>o_sccb_e</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>o_intrpt_done</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -700,7 +728,7 @@
       <spirit:enumeration>32</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
-      <spirit:name>choice_list_74b5137e</spirit:name>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
       <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
       <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
     </spirit:choice>
@@ -728,7 +756,7 @@
       <spirit:file>
         <spirit:name>hdl/myip_SCCB_Transceiver_v1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_881dbe38</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_27dd6231</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -798,6 +826,15 @@
         <spirit:fileType>tclSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_testbench_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>../../simulation_source/TestBench/tb_axi_sccb.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
   </spirit:fileSets>
   <spirit:description>My new AXI IP</spirit:description>
   <spirit:parameters>
@@ -865,8 +902,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>myip_SCCB_Transceiver_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-10-21T06:48:06Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>26</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2024-10-22T05:02:00Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@5e240ee9_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@60322260_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
@@ -896,14 +933,320 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@4fda5389_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@34383620_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@6f2b0cfe_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f394198_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60cb2c5f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ecac975_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5863bed8_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@de7ccb_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@10c9b06d_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36142f36_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@134597dc_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c056664_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4f3ad32e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@66853649_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6df19d95_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@651c8f47_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73418111_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@69cc0880_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38f6d5e6_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24b9c1a3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40ffcfbd_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6f16934e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ea97550_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1327a071_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23356ab7_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@66f0b6ad_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3561d74d_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d59d686_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d92606d_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a40388b_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@15bbf861_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b95e257_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ec142d9_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f4856be_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3250142f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71cb4ae_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d7bf9d2_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54326033_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6375da02_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@407a8c67_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73b9240d_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5aeba561_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@509f474d_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2bf986fd_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@561f9ce4_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d8fc96f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@128e8c79_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f85ac73_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47baed44_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@20a2418f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@746062fa_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@77c9fdac_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58ecbf9a_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a540bf5_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f5a15e6_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@76901d08_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45f392b3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41f2d059_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18871138_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3fed206a_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1730e649_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72be8bc3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c4dbe5d_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@296436df_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@25cfd644_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19bd6dc8_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ad962d1_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@fda1c3b_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d04d7b0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59c2c42a_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@79bad2a5_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@751fabe3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78684645_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@16fc0747_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@567ebe9c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@76b24fda_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f7ec92_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11523c86_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@da8817a_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@641da8f7_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@411208e3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c45709d_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d8bca0b_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@676702c0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d6746fd_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d46e267_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78c3c083_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37f41394_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40137727_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b17b342_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@693ef1b1_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13559af1_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@361279ea_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@70b9729c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e6c2e5_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3f0cdadc_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fc5cc8_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@643abb3a_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@77bb24e7_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a856264_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@512d3a42_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@db63c53_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47d6e044_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e6122f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@557af4d3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@738538bb_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f68ab5d_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@334500f9_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6708acac_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b635908_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3222959c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a22f44_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ec19f3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b1431d0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6021b2b3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45a8598a_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8a7eafe_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1859f245_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7cc2f672_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@390c3cc8_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b90974e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4f67ff63_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5cbc045c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b59b6e5_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b9f18eb_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b56b7ac_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@466669ae_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b1230e0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4db7cfd6_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@263dc3d1_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b4f6b2e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ac4ebb4_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e17cf4f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d340316_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9073ac8_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27fb4f30_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e1cf25_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@692c7010_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@648cb784_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ddf3b98_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60e4fe11_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e6e4ac0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ee2fee2_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@418917a9_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64b4fa51_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7d176915_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49002f8c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33277c2f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7679a89c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64685ca5_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71beeccf_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@44e56f86_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2379d487_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27d71b7f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d180db3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7113d9d7_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4be9f54_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4658e626_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e2637d5_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b88d2ae_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72700f09_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4195751e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@145e4837_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c3eab40_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3836de61_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@301cfc3f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@565667b7_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f044626_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ae1c0b1_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c60d626_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@631f6db_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72892408_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55dffb8e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14e95123_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e3decfc_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e7ebd1f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33a8b8e0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@475e21ef_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14b01e0e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@417d506e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2de60e5c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2719291e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17233e8a_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7bc401af_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@547fb2c2_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4bdd35c0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b7b9906_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3e59d845_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6181aaa2_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e6b4a8f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78241566_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e47ae60_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2107adec_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36ef21eb_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e760348_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@285a5129_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41322c22_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a649532_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23f68787_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a2b738e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24191ed7_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4fc007df_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b30a00a_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33e7de78_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8d0d403_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1153463b_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b7d028e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b9d3f87_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a6ab79f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@131d544e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b920e99_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4951dd2f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a25828e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c3cfff9_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@195f08c0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3e9b2476_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d0f5d7b_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4f06b0c4_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11c97a1f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d6ff187_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57881420_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@374076a1_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c66513f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@76fa6b59_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@771cf0a0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@360e5b16_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24155aa8_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@202ad17e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37cf971c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3204f3a_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@be7988f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6ecd6d0d_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19f9138a_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@29ccc0e3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7aeb169e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5bdbd8c2_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78fa436f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61f9cdb_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@631a8602_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e5aa0c8_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a458366_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32bd592c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d223828_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ebbbfdd_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@138518d3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ad8a0f9_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6919dad5_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@164dec49_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2aee66_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2232dbb5_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d3bf623_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71812e2b_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1639c03c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2fe11d75_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5522dd7e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b04293c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31205704_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2655db8f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@10eee1b3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7adcba52_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f8e8d7f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9a37a49_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3edcddb0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56308c46_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6722f4e1_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@514b91c1_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@39418c57_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36f51484_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e56359_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31475cda_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78d4e0ae_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fbf24aa_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2303cc09_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@20dcd11e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fc5002c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b4f81e8_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@716188e4_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9bcec2e_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4cf44c1d_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58ed257_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57b4c368_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4bd5ff0b_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1546dda_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a2f6772_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e37e066_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28db18db_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38bc1398_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1370d066_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36fdcf88_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71a70e5_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e961ab9_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64752456_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@673d7e31_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@15acece6_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ac265b0_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4420a8b4_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a3d7821_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@746010b4_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7672c9d3_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4cc3d173_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c87ba9f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57f8231c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31d173f_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@dc2a531_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2db36668_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7802a2e5_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@69df047c_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26942523_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a4cca99_ARCHIVE_LOCATION">d:/lany_workspace/Git/OV7670_VGA/vivado_src/ip_repo/myip_SCCB_Transceiver_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7a6aebf4"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7a63f3fc"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="f1f1ca4a"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="885be545"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ca0e0fea"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="f4efa669"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="6992ea72"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="f39e885b"/>
     </xilinx:packagingInfo>

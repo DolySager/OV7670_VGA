@@ -1,6 +1,5 @@
 `timescale 1ns / 1ps
 
-
 // detect phase posedge and start operation (finishes operation regardless of phase input signal change)
 module SCCB_transceiver_core(
     input i_clk,            // this is posedge clock triggered module
@@ -31,6 +30,7 @@ module SCCB_transceiver_core(
     wire [7:0] i_byte;          // byte put on sci_d line during write operation
     reg [1:0] i_byte_selector;        // 0x = put data on sci_d, 10 = put i_main_addr on sci_d, 11 = put i_sub_addr on sci_d
     reg [2:0] phase_reg;        // stores phase operation execution state
+    reg [3:0] mode_done;        // indicates mode operation has finished
     reg [3:0] mode_start;        // indicates mode operation has finished
     
     // sci_d byte type selector
@@ -97,7 +97,7 @@ module SCCB_transceiver_core(
     always @(posedge i_clk or posedge i_reset_p) begin
         if (i_reset_p) begin
             sio_c_counter <= 0;
-            o_sio_c <= 1;
+            o_sio_c <= 0;
         end
         else begin
             if (!sio_c_en) begin
@@ -105,12 +105,13 @@ module SCCB_transceiver_core(
                     sio_c_counter <= 0;
                     o_sio_c <= ~o_sio_c;
                 end
-                else if (mode) begin
+                else if (mode) begin      // SIO_C only oscillates during write or read operation
                     sio_c_counter <= sio_c_counter + 1;
                 end
             end
             else begin
                 sio_c_counter <= 0;
+//                o_sio_c <= 1;
             end
         end
     end
@@ -126,34 +127,33 @@ module SCCB_transceiver_core(
             nabit_mode <= 1'b1;
             sio_d_bitCount <= 3'b000;
             o_data <= 0;
-            mode <= 4'b0000;
         end
         else begin
             // write operation
-            if (mode_start[0]) begin mode[0] <= 1; sio_d_oe_m <= 0; sio_d_bitCount <= 0; sio_c_en <= 0; dontcarebit_mode <= 1; end
+            if (mode_start[0]) begin mode[0] <= 1; sio_d_oe_m <= 0; sio_d_bitCount <= 0; sio_c_en <= 0; end
             else if (mode[0] && o_sio_c_negedge && dontcarebit_mode) sio_d_out <= i_byte[7 - sio_d_bitCount];
-            else if (mode[0] && o_sio_c_posedge && dontcarebit_mode) sio_d_bitCount <= sio_d_bitCount + 1;
+            else if (mode[0] && o_sio_c_posedge && dontcarebit_mode) sio_d_bitCount = sio_d_bitCount + 1;
             else if (mode[0] && sio_d_bitCount2_negedge) dontcarebit_mode <= 0;
-            else if (mode[0] && o_sio_c_negedge && !dontcarebit_mode && !sio_d_oe_m) begin sio_d_oe_m <= 1; sio_d_out <= 0; end
-            else if (mode[0] && o_sio_c_negedge && !dontcarebit_mode && sio_d_oe_m) begin dontcarebit_mode <= 1; mode[0] <= 0; sio_c_en <= 1; sio_d_out <= 0; end
-
-            //read operation
-            else if (mode_start[1]) begin mode[1] <= 1; sio_d_oe_m <= 1; sio_d_bitCount <= 0; o_data <= 0; sio_c_en <= 0; nabit_mode <= 1; end 
-            else if (mode[1] && o_sio_c_posedge && nabit_mode) o_data[7 - sio_d_bitCount] <= sio_d_in;
-            else if (mode[1] && o_sio_c_negedge && nabit_mode) sio_d_bitCount <= sio_d_bitCount + 1;
+            else if (mode[0] && o_sio_c_negedge && !dontcarebit_mode && !sio_d_oe_m) sio_d_oe_m <= 1;
+            else if (mode[0] && o_sio_c_negedge && !dontcarebit_mode && sio_d_oe_m) begin sio_d_oe_m <= 0; dontcarebit_mode <= 1; mode[0] <= 0; sio_c_en <= 1; end
+            
+            // read operation
+            else if (mode_start[1]) begin mode[1] <= 1; sio_d_oe_m <= 1; sio_d_bitCount <= 0; o_data <= 0; sio_c_en <= 0; end 
+            else if (mode[1] && o_sio_c_posedge && nabit_mode) o_data[7 - sio_d_bitCount] = sio_d_in;
+            else if (mode[1] && o_sio_c_negedge && nabit_mode) sio_d_bitCount = sio_d_bitCount + 1;
             else if (mode[1] && sio_d_bitCount2_negedge) nabit_mode <= 0;
             else if (mode[1] && o_sio_c_negedge && !nabit_mode && sio_d_oe_m) begin sio_d_oe_m <= 0; sio_d_out <= 1; end
             else if (mode[1] && o_sio_c_negedge && !nabit_mode && !sio_d_oe_m) begin nabit_mode <= 1; mode[1] <= 0; sio_c_en <= 1; sio_d_out <= 0; end
-
+            
             // start bit
             else if (mode_start[2]) begin mode[2] <= 1; sio_d_out <= 1; sio_d_oe_m <= 0; sio_c_en <= 1; end
             else if (mode[2] && sio_d_oe_m_negedge) o_sccb_e <= 0;
             else if (mode[2] && o_sccb_e_negedge) sio_d_out <= 0;
             else if (mode[2] && sio_d_out_negedge) sio_c_en <= 0;
             else if (mode[2] && o_sio_c_negedge) mode[2] <= 0;
-
+            
             // stop bit
-            else if (mode_start[3]) begin mode[3] <= 1; sio_c_en <= 0; sio_d_out <= 0; sio_d_oe_m <= 0; end 
+            else if (mode_start[3]) begin mode[3] <= 1; sio_c_en <= 0; end 
             else if (mode[3] && o_sio_c_posedge) begin sio_c_en <= 1; sio_d_out <= 1; end
             else if (mode[3] && sio_d_out_posedge) o_sccb_e <= 1;
             else if (mode[3] && o_sccb_e_posedge) sio_d_oe_m <= 1;

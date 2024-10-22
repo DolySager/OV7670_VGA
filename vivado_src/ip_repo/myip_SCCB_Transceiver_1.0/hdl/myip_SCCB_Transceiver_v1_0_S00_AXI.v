@@ -17,7 +17,8 @@
 		// Users to add ports here
         inout io_sio_d,
         output o_sio_c,    
-        output o_sccb_e, 
+        output o_sccb_e,
+        output o_intrpt_done,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -94,6 +95,8 @@
 	reg [C_S_AXI_DATA_WIDTH-1 : 0] 	axi_rdata;
 	reg [1 : 0] 	axi_rresp;
 	reg  	axi_rvalid;
+	wire [2:0] phase_done;
+	wire [7:0] data_out;
 
 	// Example-specific design signals
 	// local parameter for addressing 32 bit / 64 bit C_S_AXI_DATA_WIDTH
@@ -244,7 +247,7 @@
 	                // Respective byte enables are asserted as per write strobes 
 	                // Slave register 1
 	                slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-	              end  
+	              end
 	          2'h2:
 	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
@@ -260,14 +263,17 @@
 	                slv_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
 	              end  
 	          default : begin
-	                      slv_reg0 <= slv_reg0;
+                          slv_reg0 <= slv_reg0;
 	                      slv_reg1 <= slv_reg1;
 	                      slv_reg2 <= slv_reg2;
 	                      slv_reg3 <= slv_reg3;
 	                    end
 	        endcase
 	      end
+	      else if (|phase_done) slv_reg0 <= 32'h0;
 	  end
+
+	  
 	end    
 
 	// Implement write response logic generation
@@ -374,7 +380,7 @@
 	      case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
 	        2'h0   : reg_data_out <= slv_reg0;
 	        2'h1   : reg_data_out <= slv_reg1;
-	        2'h2   : reg_data_out <= slv_reg2;
+	        2'h2   : reg_data_out <= data_out;
 	        2'h3   : reg_data_out <= slv_reg3;
 	        default : reg_data_out <= 0;
 	      endcase
@@ -401,8 +407,8 @@
 
 	// Add user logic here
 	wire [2:0] phase;   // phase select register
-    wire [2:0] phase_done;
-    wire [7:0] main_addr, sub_addr, data_in, data_out;
+    
+    wire [7:0] main_addr, sub_addr, data_in;
     SCCB_transceiver_core AXI_module(
         .i_clk(S_AXI_ACLK),
         .i_reset_p(~S_AXI_ARESETN),
@@ -419,19 +425,7 @@
         
     assign phase = slv_reg0[2:0];
     assign {data_in, sub_addr, main_addr} = slv_reg1[23:0];
-    assign data_out = slv_reg2[7:0];
-        
-    always @( posedge S_AXI_ACLK) begin
-        if (phase_done[0]) begin
-            slv_reg0[0] <= 0;
-        end
-        else if (phase_done[1]) begin
-            slv_reg0[1] <= 0;
-        end
-        else if (phase_done[2]) begin
-            slv_reg0[2] <= 0;
-        end
-    end
+    assign o_intrpt_done = |phase_done; 
 	// User logic ends
 
 	endmodule

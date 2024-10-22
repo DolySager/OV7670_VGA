@@ -17,7 +17,8 @@
 		// Users to add ports here
         inout io_sio_d,
         output o_sio_c,    
-        output o_sccb_e, 
+        output o_sccb_e,
+        output o_intrpt_done,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -53,6 +54,7 @@
 	    .io_sio_d(io_sio_d),
         .o_sio_c(o_sio_c),    
         .o_sccb_e(o_sccb_e), 
+        .o_intrpt_done(o_intrpt_done),
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
 		.S_AXI_AWADDR(s00_axi_awaddr),
