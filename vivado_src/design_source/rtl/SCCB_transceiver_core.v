@@ -1,19 +1,20 @@
 `timescale 1ns / 1ps
 
 
-// detect phase posedge and start operation (finishes operation regardless of phase input signal change)
+// detect phase posedge and starts operation (finishes operation regardless of phase input signal change)
+// o_phase_done signal pulse outputted when the phase is finished
 module SCCB_transceiver_core(
-    input i_clk,            // this is posedge clock triggered module
-    input i_reset_p,        // posedge triggered reset
-    input [7:0] i_main_addr,     // address of module which data sent to via SCCB
-    input [7:0] i_sub_addr,     // sub address within module which data sent to via SCCB
-    input [7:0] i_data,     // data begin sent via SCCB
-    input [2:0] i_phase,      // phase[0]: 3-phase write, phase[1]: 2-phase write, phase[2]: 2-phase read
-    inout io_sio_d,         // SCCB data line
-    output reg o_sio_c,     // SSCB clock line
-    output reg o_sccb_e,    // SCCB enable line (active low)
-    output reg [7:0] o_data, // byte received via SCCB
-    output reg [2:0] o_phase_done   // indicates requested phase is finished
+    input i_clk,                   // this is posedge clock triggered module
+    input i_reset_p,               // posedge triggered reset
+    input [7:0] i_main_addr,       // address of module which data sent to via SCCB
+    input [7:0] i_sub_addr,        // sub address within module which data sent to via SCCB
+    input [7:0] i_data,            // data being sent via SCCB
+    input [2:0] i_phase,           // phase[0]: 3-phase write, phase[1]: 2-phase write, phase[2]: 2-phase read
+    inout io_sio_d,                // SCCB data line
+    output reg o_sio_c,            // SSCB clock line
+    output reg o_sccb_e,           // SCCB enable line (active low)
+    output reg [7:0] o_data,       // byte received via SCCB
+    output reg [2:0] o_phase_done  // indicates requested phase is finished
     );
     
     parameter SYS_CLK_FREQ = 100_000_000;   // system clock frequency
@@ -29,9 +30,9 @@ module SCCB_transceiver_core(
     reg dontcarebit_mode;       // to indicate time to assert don't care bit (during write) (active low)
     reg nabit_mode;             // to indicate time to assert NA bit (during read) (active low)
     wire [7:0] i_byte;          // byte put on sci_d line during write operation
-    reg [1:0] i_byte_selector;        // 0x = put data on sci_d, 10 = put i_main_addr on sci_d, 11 = put i_sub_addr on sci_d
+    reg [1:0] i_byte_selector;  // 0x = put data on sci_d, 10 = put i_main_addr on sci_d, 11 = put i_sub_addr on sci_d
     reg [2:0] phase_reg;        // stores phase operation execution state
-    reg [3:0] mode_start;        // indicates mode operation has finished
+    reg [3:0] mode_start;       // indicates mode operation has finished
     
     // sci_d byte type selector
     assign i_byte = i_byte_selector[1] ? (i_byte_selector[0] ? i_sub_addr : i_main_addr) : i_data;
@@ -63,6 +64,7 @@ module SCCB_transceiver_core(
             i_byte_selector <= 2'b00;
         end
         else begin
+
             // 3-phase write operation
             if (i_phase0_posedge)                                               begin phase_reg[0] <= 1; mode_start[2] <= 1; i_byte_selector <= 2'b00; end    // start bit
             else if (phase_reg[0] && mode2_negedge && i_byte_selector == 2'b00) begin mode_start[0] <= 1; i_byte_selector = 2'b10; end // write main address
@@ -85,7 +87,9 @@ module SCCB_transceiver_core(
             else if (phase_reg[2] && mode1_negedge && i_byte_selector <= 2'b11) begin mode_start[3] <= 1; end   // stop bit
             else if (phase_reg[2] && mode3_negedge)                             begin phase_reg[2] <= 0; o_phase_done[2] <= 1; end
             
+            // pulse generation
             else                                                                begin mode_start <= 4'b0000; o_phase_done <= 3'b000; end
+
         end
     end
     
@@ -129,6 +133,7 @@ module SCCB_transceiver_core(
             mode <= 4'b0000;
         end
         else begin
+
             // write operation
             if (mode_start[0]) begin mode[0] <= 1; sio_d_oe_m <= 0; sio_d_bitCount <= 0; sio_c_en <= 0; dontcarebit_mode <= 1; sio_d_out <= i_byte[7]; end
             else if (mode[0] && o_sio_c_negedge && dontcarebit_mode) sio_d_out <= i_byte[7 - sio_d_bitCount];
